@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300">
+  <rect width="400" height="300" fill="#F5E6D3" rx="8"/>
+  <rect x="130" y="100" width="140" height="120" rx="4" fill="#D4A017" opacity="0.5"/>
+  <rect x="135" y="105" width="130" height="20" rx="2" fill="#C0392B" opacity="0.4"/>
+  <rect x="135" y="130" width="130" height="15" rx="2" fill="#fff" opacity="0.4"/>
+  <rect x="135" y="150" width="130" height="20" rx="2" fill="#C0392B" opacity="0.4"/>
+  <rect x="135" y="175" width="130" height="15" rx="2" fill="#fff" opacity="0.4"/>
+  <rect x="135" y="195" width="130" height="20" rx="2" fill="#C0392B" opacity="0.4"/>
+  <circle cx="170" cy="140" r="3" fill="#8B1A1A"/>
+  <circle cx="200" cy="165" r="3" fill="#8B1A1A"/>
+  <circle cx="230" cy="140" r="3" fill="#8B1A1A"/>
+  <circle cx="185" cy="190" r="3" fill="#8B1A1A"/>
+  <circle cx="215" cy="115" r="3" fill="#8B1A1A"/>
+  <text x="200" y="270" text-anchor="middle" font-size="12" fill="#8B1A1A" font-family="Georgia">Tiramisù</text>
+</svg>

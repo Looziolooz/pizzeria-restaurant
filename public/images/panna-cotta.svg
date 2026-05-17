@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300">
+  <rect width="400" height="300" fill="#F5E6D3" rx="8"/>
+  <ellipse cx="200" cy="120" rx="60" ry="20" fill="#fff" opacity="0.5"/>
+  <rect x="140" y="120" width="120" height="70" rx="4" fill="#fff" opacity="0.7"/>
+  <ellipse cx="200" cy="190" rx="60" ry="20" fill="#fff" opacity="0.5"/>
+  <ellipse cx="200" cy="190" rx="55" ry="15" fill="#C0392B" opacity="0.5"/>
+  <circle cx="160" cy="155" r="6" fill="#C0392B"/>
+  <circle cx="180" cy="145" r="5" fill="#C0392B"/>
+  <circle cx="210" cy="160" r="7" fill="#C0392B"/>
+  <circle cx="230" cy="150" r="5" fill="#C0392B"/>
+  <circle cx="195" cy="170" r="4" fill="#C0392B"/>
+  <circle cx="220" cy="170" r="6" fill="#C0392B"/>
+  <text x="200" y="270" text-anchor="middle" font-size="12" fill="#8B1A1A" font-family="Georgia">Panna Cotta</text>
+</svg>

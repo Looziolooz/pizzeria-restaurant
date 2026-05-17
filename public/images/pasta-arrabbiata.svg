@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300">
+  <rect width="400" height="300" fill="#F5E6D3" rx="8"/>
+  <ellipse cx="200" cy="160" rx="70" ry="50" fill="#C0392B" opacity="0.3"/>
+  <rect x="140" y="130" width="8" height="55" rx="4" fill="#D4A017" transform="rotate(-15 144 157)"/>
+  <rect x="160" y="120" width="8" height="55" rx="4" fill="#D4A017" transform="rotate(10 164 147)"/>
+  <rect x="180" y="125" width="8" height="55" rx="4" fill="#D4A017" transform="rotate(-5 184 152)"/>
+  <rect x="200" y="118" width="8" height="55" rx="4" fill="#D4A017" transform="rotate(20 204 145)"/>
+  <rect x="220" y="130" width="8" height="55" rx="4" fill="#D4A017" transform="rotate(-10 224 157)"/>
+  <rect x="240" y="125" width="8" height="55" rx="4" fill="#D4A017" transform="rotate(15 244 152)"/>
+  <circle cx="200" cy="140" r="5" fill="#C0392B"/>
+  <circle cx="175" cy="155" r="4" fill="#C0392B"/>
+  <circle cx="225" cy="145" r="4" fill="#C0392B"/>
+  <text x="200" y="270" text-anchor="middle" font-size="12" fill="#8B1A1A" font-family="Georgia">Arrabbiata</text>
+</svg>
