@@ -3,6 +3,7 @@ import { Cormorant_Garamond, DM_Sans } from "next/font/google"
 import "./globals.css"
 import Header from "@/components/Header"
 import Footer from "@/components/Footer"
+import { CartProvider, OrdersProvider } from "@/lib/store"
 
 const cormorant = Cormorant_Garamond({
   subsets: ["latin"],
@@ -19,9 +20,9 @@ const dmSans = DM_Sans({
 })
 
 export const metadata: Metadata = {
-  title: "Da Lorenzo | Pizzeria & Cucina Italiana",
+  title: "Da Lorenzo | Pizzeria & Cucina Calabrese a Milano",
   description:
-    "Autentica cucina italiana a Milano dal 1985. Pizze cotte nel forno a legna, pasta fatta a mano e dolci artigianali.",
+    "Pizza calabrese a lievito madre a Milano. Ordina online con delivery o asporto. Prenota un tavolo.",
 }
 
 export default function RootLayout({
@@ -34,10 +35,14 @@ export default function RootLayout({
       lang="it"
       className={`${cormorant.variable} ${dmSans.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col bg-sand text-ink font-sans *:text-ink">
-        <Header />
-        <main className="flex-1">{children}</main>
-        <Footer />
+      <body className="min-h-full flex flex-col bg-sand text-ink font-sans">
+        <CartProvider>
+          <OrdersProvider>
+            <Header />
+            <main className="flex-1">{children}</main>
+            <Footer />
+          </OrdersProvider>
+        </CartProvider>
       </body>
     </html>
   )

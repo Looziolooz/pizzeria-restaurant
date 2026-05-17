@@ -1,240 +1,205 @@
-import Link from "next/link"
+"use client"
+
 import Image from "next/image"
-import HeroSection from "@/components/HeroSection"
-import { menuItems, testimonials, restaurantInfo, heroImages } from "@/data/restaurant"
-
-const pizzaItems = menuItems.filter((i) => i.category === "pizze").slice(0, 3)
-
-const showcaseScenes = [
-  {
-    image: heroImages[0],
-    title: "Pizza Napoletana",
-    subtitle: "Morbida, fragrante, cotta a regola d'arte",
-  },
-  {
-    image: heroImages[1],
-    title: "Pizza Fritta",
-    subtitle: "Crocante fuori, soffice dentro",
-  },
-  {
-    image: heroImages[2],
-    title: "Pizza al Metro",
-    subtitle: "Da condividere con chi ami",
-  },
-]
+import Link from "next/link"
+import ParallaxShowcase from "@/components/ParallaxShowcase"
+import PizzaCard from "@/components/PizzaCard"
+import { Icon } from "@/components/ui"
+import { SHOP, MENU_ITEMS, PIZZA_PHOTOS, formatEUR } from "@/lib/data"
+import { useCart } from "@/lib/store"
 
 export default function Home() {
+  const cart = useCart()
+  const featured = MENU_ITEMS.filter(i => i.featured)
+  const popular = ["p-margherita", "p-nduja", "p-tropea", "p-bergamotto", "p-diavola", "p-mortadella"]
+    .map(id => MENU_ITEMS.find(i => i.id === id))
+    .filter(Boolean)
+
   return (
-    <>
-      <HeroSection />
-
-      <section className="relative z-10 -mt-10 sm:-mt-16 px-4">
-        <div className="max-w-4xl mx-auto grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6">
-          {[
-            {
-              icon: (
-                <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M13 10V3L4 14h7v7l9-11h-7z" />
-                </svg>
-              ),
-              title: "Consegna a Domicilio",
-              desc: "In 30 minuti o meno",
-              href: "/menu",
-            },
-            {
-              icon: (
-                <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 100 4 2 2 0 000-4z" />
-                </svg>
-              ),
-              title: "Take Away",
-              desc: "Ordina e ritira quando vuoi",
-              href: "/menu",
-            },
-            {
-              icon: (
-                <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                </svg>
-              ),
-              title: "Prenota un Tavolo",
-              desc: "Inizia a prenotare",
-              href: "/contact",
-            },
-          ].map((item, i) => (
-            <Link
-              key={i}
-              href={item.href}
-              className="group bg-cream rounded-xl2 px-6 py-7 sm:py-8 text-center shadow-gentle hover:shadow-lg transition-all duration-300 border border-line"
-            >
-              <div className="w-14 h-14 mx-auto mb-4 rounded-full bg-sand-deep flex items-center justify-center text-walnut group-hover:bg-tomato group-hover:text-white transition-all duration-300">
-                {item.icon}
-              </div>
-              <h3 className="text-base font-semibold text-ink mb-1">{item.title}</h3>
-              <p className="text-sm text-ink-2">{item.desc}</p>
-            </Link>
-          ))}
-        </div>
-      </section>
-
-      <section className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-20 sm:py-28">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
-          <div className="relative aspect-[4/5] rounded-xl2 overflow-hidden">
-            <Image
-              src={heroImages[2]}
-              alt="Pizza napoletana"
-              fill
-              className="object-cover"
-              sizes="(max-width: 1024px) 100vw, 50vw"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-forno/40 to-transparent" />
-          </div>
-          <div className="animate-fadein">
-            <p className="text-eyebrow text-tomato mb-4">La Nostra Storia</p>
-            <h2 className="text-[clamp(1.75rem,4vw,3rem)] font-serif font-bold text-ink leading-[1.1] mb-6">
-              Calabresi di nascita,<br />
-              <span className="italic font-normal text-ink-2">milanesi d'adozione.</span>
-            </h2>
-            <div className="space-y-4 text-ink-2 leading-relaxed">
-              <p>
-                Dal 2014 portiamo a Milano i sapori autentici della Calabria. La nostra pizza
-                nasce da un impasto lungamente lievitato, con farine selezionate e ingredienti
-                del nostro territorio d'origine.
-              </p>
-              <p>
-                Ogni piatto racconta una storia: il pomodoro di chiara provenienza calabrese,
-                l'olio extravergine dei fratelli Macrì, la 'nduja artigianale di Spilinga.
-              </p>
-            </div>
-            <Link
-              href="/about"
-              className="group inline-flex items-center gap-2 mt-6 text-sm font-semibold text-tomato hover:text-tomato-deep transition-colors"
-            >
-              Scopri di più
-              <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-              </svg>
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      <section className="bg-forno overflow-hidden">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-20 sm:py-28">
-          <div className="text-center mb-16">
-            <p className="text-eyebrow text-amber/70 mb-4">Le Nostre Pizze</p>
-            <h2 className="text-[clamp(1.75rem,5vw,4rem)] font-serif font-bold text-white leading-[1.1]">
-              I più amati
-            </h2>
-          </div>
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-8">
-            {pizzaItems.map((item, i) => (
-              <div
-                key={item.id}
-                className="group relative bg-white/5 rounded-xl2 overflow-hidden border border-white/10 hover:border-amber/30 transition-all duration-500"
-                style={{ animationDelay: `${i * 0.15}s` }}
-              >
-                <div className="relative aspect-[4/3] overflow-hidden">
-                  <Image
-                    src={item.image}
-                    alt={item.name}
-                    fill
-                    className="object-cover group-hover:scale-105 transition-transform duration-700"
-                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-forno via-forno/20 to-transparent" />
-                </div>
-                <div className="p-5 sm:p-6">
-                  <h3 className="text-xl font-serif font-bold text-white mb-1">{item.name}</h3>
-                  <p className="text-sm text-white/60 mb-4 line-clamp-2">{item.description}</p>
-                  <div className="flex items-center justify-between">
-                    <span className="text-amber font-semibold text-lg">{item.price}</span>
-                    <span className="text-xs text-white/40 font-medium uppercase tracking-wider">
-                      {item.ingredients.slice(0, 2).join(", ")}
-                    </span>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-          <div className="text-center mt-10">
-            <Link
-              href="/menu"
-              className="inline-flex items-center gap-2 text-sm font-semibold text-amber hover:text-amber/80 transition-colors"
-            >
-              Vedi tutto il menu
-              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-              </svg>
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      <section className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-20 sm:py-28">
-        <div className="text-center mb-12">
-          <p className="text-eyebrow text-tomato mb-4">Dicono di Noi</p>
-          <h2 className="text-[clamp(1.75rem,4vw,3rem)] font-serif font-bold text-ink leading-[1.1]">
-            La voce dei nostri ospiti
-          </h2>
-        </div>
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-8">
-          {testimonials.map((t, i) => (
-            <div
-              key={i}
-              className="bg-cream rounded-xl2 p-6 sm:p-8 border border-line"
-            >
-              <div className="flex gap-1 mb-4">
-                {Array.from({ length: t.rating }).map((_, j) => (
-                  <svg key={j} className="w-4 h-4 text-amber" fill="currentColor" viewBox="0 0 20 20">
-                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                  </svg>
-                ))}
-              </div>
-              <p className="text-sm text-ink-2 italic leading-relaxed mb-4">
-                &ldquo;{t.text}&rdquo;
-              </p>
-              <p className="text-sm font-semibold text-ink">{t.name}</p>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      <section className="relative overflow-hidden">
+    <div className="bg-sand">
+      <section className="relative min-h-[640px] md:min-h-[760px] overflow-hidden bg-forno text-cream">
         <div className="absolute inset-0">
-          <div
-            className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-            style={{ backgroundImage: `url(${heroImages[1]})` }}
-          />
-          <div className="absolute inset-0 bg-gradient-to-b from-sand/20 via-forno/85 to-forno" />
+          <Image src={PIZZA_PHOTOS.hero[0]} alt="" fill className="object-cover" priority sizes="100vw" />
+          <div className="absolute inset-0 bg-gradient-to-b from-forno/40 via-forno/55 to-forno/85" />
+          <div className="absolute inset-0 bg-gradient-to-r from-forno/50 via-transparent to-forno/30" />
         </div>
-        <div className="relative max-w-3xl mx-auto px-4 py-20 sm:py-28 text-center">
-          <p className="text-eyebrow text-amber/70 mb-4">Vieni a Trovarci</p>
-          <h2 className="text-[clamp(1.75rem,4vw,3rem)] font-serif font-bold text-white leading-[1.1] mb-6">
-            Ti aspettiamo
-          </h2>
-          <p className="text-white/70 mb-2">{restaurantInfo.address}</p>
-          <p className="text-white/70 mb-8">
-            <a href={`tel:${restaurantInfo.phone}`} className="hover:text-amber transition-colors">
-              {restaurantInfo.phone}
-            </a>
-          </p>
-          <div className="flex flex-wrap justify-center gap-4">
-            <Link
-              href="/contact"
-              className="bg-tomato hover:bg-tomato-deep text-white font-semibold px-8 py-3.5 rounded-full transition-all duration-300"
-            >
-              Prenota un Tavolo
+        <div className="relative max-w-page mx-auto px-6 md:px-12 pt-24 md:pt-32 pb-32 grid md:grid-cols-2 gap-10 items-center">
+          <div>
+            <div className="font-sans text-[11px] tracking-[0.22em] uppercase font-medium text-cream/80">
+              Milano · Calabria · dal 1985
+            </div>
+            <h1 className="font-serif font-medium leading-[0.95] tracking-[-0.02em] mt-5 mb-7 text-cream"
+              style={{ fontSize: "clamp(44px, 9vw, 124px)", textShadow: "0 4px 30px rgba(0,0,0,0.4)" }}>
+              Pizza vera,<br />
+              <em className="italic text-amber font-normal">a due passi da te.</em>
+            </h1>
+            <p className="font-serif italic text-[20px] md:text-[22px] leading-snug text-cream/92 max-w-[520px] mb-9">
+              Lievito madre vivo. Farine biologiche. Topping della nostra terra: 'nduja di Spilinga,
+              cipolla rossa di Tropea, bergamotto di Reggio.
+            </p>
+            <div className="flex flex-wrap gap-3">
+              <Link href="/menu"
+                className="inline-flex items-center gap-2.5 px-7 py-4 bg-tomato text-cream font-sans font-medium text-[12px] tracking-caps uppercase rounded-full hover:bg-tomato-deep hover:-translate-y-0.5 transition-all duration-200 ease-gentle">
+                <Icon name="bag" size={15} /> Ordina online
+              </Link>
+              <Link href="/reserve"
+                className="inline-flex items-center gap-2.5 px-7 py-4 border border-cream/45 text-cream font-sans font-medium text-[12px] tracking-caps uppercase rounded-full hover:bg-cream/10 hover:border-cream transition-all duration-200 ease-gentle">
+                <Icon name="utensils" size={15} /> Prenota un tavolo
+              </Link>
+            </div>
+            <div className="flex flex-wrap gap-x-8 gap-y-2 mt-10 text-cream/75 font-sans text-[12px]">
+              <div className="inline-flex items-center gap-2"><Icon name="clock" size={13} /> Pronta in 25 min</div>
+              <div className="inline-flex items-center gap-2"><Icon name="bike" size={13} /> Delivery entro 8 km</div>
+              <div className="inline-flex items-center gap-2"><Icon name="store" size={13} /> Asporto da {formatEUR(SHOP.pickup_min)}</div>
+            </div>
+          </div>
+        </div>
+        <div className="absolute bottom-8 right-8 z-10 text-cream/65 font-sans text-[11px] tracking-[0.22em] uppercase hidden md:block"
+          style={{ writingMode: "vertical-rl", transform: "rotate(180deg)" }}>scroll</div>
+      </section>
+
+      <ParallaxShowcase />
+
+      <section className="border-b border-line">
+        <div className="max-w-page mx-auto grid md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-line">
+          {[
+            { icon: "bike", label: "Delivery", sub: `${SHOP.delivery_radius_km} km · da ${formatEUR(SHOP.delivery_min)}`, href: "/menu" },
+            { icon: "store", label: "Asporto", sub: `Pronta in ${SHOP.prep_minutes} min · da ${formatEUR(SHOP.pickup_min)}`, href: "/menu" },
+            { icon: "utensils", label: "Prenota tavolo", sub: "Cena al locale, 28 coperti.", href: "/reserve" },
+          ].map((c, i) => (
+            <Link key={i} href={c.href}
+              className="group px-6 md:px-10 py-10 md:py-12 flex items-center gap-5 hover:bg-sand-deep transition-colors duration-200 ease-gentle">
+              <div className="w-14 h-14 rounded-full bg-tomato/8 grid place-items-center text-tomato shrink-0">
+                <Icon name={c.icon} size={24} />
+              </div>
+              <div className="flex-1">
+                <div className="font-serif font-medium text-[26px] leading-tight text-ink group-hover:text-tomato transition-colors">{c.label}</div>
+                <div className="font-sans text-[13px] text-ink-2 mt-1">{c.sub}</div>
+              </div>
+              <Icon name="arrow_r" size={18} className="text-ink-2 group-hover:text-tomato group-hover:translate-x-1 transition-all" />
             </Link>
-            <a
-              href={`tel:${restaurantInfo.phone}`}
-              className="bg-white/10 hover:bg-white/20 text-white font-semibold px-8 py-3.5 rounded-full transition-all duration-300 backdrop-blur-sm border border-white/20"
-            >
-              Chiamaci
-            </a>
+          ))}
+        </div>
+      </section>
+
+      <section className="py-20 md:py-24 max-w-page mx-auto px-6 md:px-8">
+        <div className="flex items-baseline justify-between gap-6 flex-wrap mb-10">
+          <div>
+            <div className="font-sans text-[11px] tracking-[0.22em] uppercase text-walnut font-medium mb-3">Stasera al forno</div>
+            <h2 className="font-serif font-medium leading-[1.02] tracking-[-0.015em] m-0" style={{ fontSize: "clamp(36px, 4.5vw, 64px)" }}>
+              Le pizze del momento.
+            </h2>
+          </div>
+          <Link href="/menu"
+            className="font-sans text-[12px] tracking-caps uppercase text-walnut border-b border-walnut pb-1 hover:text-tomato hover:border-tomato transition-colors">
+            Tutto il menù &rarr;
+          </Link>
+        </div>
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-6 gap-y-10">
+          {popular.map(p => p && <PizzaCard key={p.id} item={p} />)}
+        </div>
+      </section>
+
+      <section className="bg-sand-deep border-y border-line py-24 md:py-28">
+        <div className="max-w-content mx-auto px-6 md:px-8 grid md:grid-cols-2 gap-14 md:gap-20 items-center">
+          <div className="aspect-[4/5] rounded-xl2 overflow-hidden bg-walnut relative">
+            <Image src={PIZZA_PHOTOS.story} alt="Lievito madre vivo" fill className="object-cover" sizes="(max-width: 1024px) 100vw, 50vw" />
+            <div className="absolute inset-0 bg-gradient-to-t from-forno/55 via-transparent to-transparent" />
+            <div className="absolute bottom-6 left-6 right-6 font-serif italic text-cream/95 text-[15px] leading-snug">
+              Nutriamo il nostro lievito madre ogni giorno, dal 2014.
+              Acqua, farina, tempo &mdash; e una memoria che si tramanda di impasto in impasto.
+            </div>
+          </div>
+          <div>
+            <div className="font-sans text-[11px] tracking-[0.22em] uppercase text-walnut font-medium">La nostra storia</div>
+            <h2 className="font-serif font-medium leading-[1.02] tracking-[-0.015em] mt-4 mb-6" style={{ fontSize: "clamp(40px, 5vw, 68px)" }}>
+              Nati a Tropea.<br />
+              <em className="italic text-walnut">Cresciuti con calma.</em>
+            </h2>
+            <p className="font-serif text-[19px] leading-relaxed text-ink m-0 mb-5 max-w-[520px]">
+              Da Lorenzo nasce nel 2014 a Milano, da un'idea di due fratelli calabresi
+              e una madre &mdash; il lievito che ancora oggi profuma le nostre cucine.
+            </p>
+            <p className="font-serif text-[19px] leading-relaxed text-ink m-0 mb-7 max-w-[520px]">
+              Una sola pizzeria. Una sola idea: pizza vera, fatta con le materie prime
+              della nostra terra. 'Nduja di Spilinga, cipolla rossa IGP, bergamotto di Reggio,
+              caciocavallo silano, alici di Cetara. Tutto a chilometri zero, o quasi.
+            </p>
+            <div className="grid grid-cols-3 gap-4 mt-8 max-w-[480px]">
+              {[
+                ["12", "anni di forno"],
+                ["48", "ore di lievitazione"],
+                ["100%", "ingredienti calabresi"],
+              ].map(([k, v]) => (
+                <div key={v} className="border-t border-line pt-3">
+                  <div className="font-serif font-medium text-[36px] leading-none text-tomato">{k}</div>
+                  <div className="font-sans text-[11px] tracking-[0.22em] uppercase text-ink-2 mt-2">{v}</div>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
-    </>
+
+      <section className="py-20 md:py-24 max-w-content mx-auto px-6 md:px-8">
+        <div className="grid md:grid-cols-[1fr_1.2fr] gap-12 md:gap-16 items-start">
+          <div>
+            <div className="font-sans text-[11px] tracking-[0.22em] uppercase text-walnut font-medium mb-3">Vieni a trovarci</div>
+            <h2 className="font-serif font-medium leading-[1.02] tracking-[-0.015em] m-0 mb-7" style={{ fontSize: "clamp(36px, 4.5vw, 56px)" }}>
+              Via Roma 42,<br />a due passi dal centro.
+            </h2>
+            <ul className="font-serif text-[18px] text-ink leading-relaxed list-none p-0 m-0 space-y-2.5">
+              <li className="flex gap-3 items-start"><Icon name="pin" size={18} className="text-tomato mt-1.5 shrink-0" />{SHOP.address}</li>
+              <li className="flex gap-3 items-start"><Icon name="phone" size={18} className="text-tomato mt-1.5 shrink-0" />{SHOP.phone}</li>
+              <li className="flex gap-3 items-start"><Icon name="clock" size={18} className="text-tomato mt-1.5 shrink-0" />
+                <div className="space-y-0.5">
+                  {SHOP.hours.map(h => (
+                    <div key={h.day}><span className="text-ink-2 mr-2 italic">{h.day}</span>{h.time}</div>
+                  ))}
+                </div>
+              </li>
+            </ul>
+            <div className="flex gap-3 mt-8">
+              <Link href="/reserve"
+                className="inline-flex items-center gap-2 px-5 py-3 bg-ink text-sand font-sans font-medium text-[11px] tracking-caps uppercase rounded-full hover:bg-tomato transition-colors">
+                <Icon name="utensils" size={14} /> Prenota
+              </Link>
+              <Link href="/menu"
+                className="inline-flex items-center gap-2 px-5 py-3 border border-ink text-ink font-sans font-medium text-[11px] tracking-caps uppercase rounded-full hover:bg-ink hover:text-sand transition-all">
+                <Icon name="bag" size={14} /> Ordina
+              </Link>
+            </div>
+          </div>
+          <div className="aspect-[5/4] rounded-xl2 overflow-hidden relative bg-sand-deep border border-line">
+            <svg viewBox="0 0 500 400" preserveAspectRatio="xMidYMid slice" className="absolute inset-0 w-full h-full">
+              <rect width="500" height="400" fill="#EFE8DE" />
+              <path d="M 0 240 Q 100 230 200 250 Q 300 270 400 250 Q 470 240 500 250 L 500 400 L 0 400 Z" fill="#A8C0CC" opacity="0.6" />
+              <path d="M 0 260 Q 100 250 200 270 Q 300 290 400 270 Q 470 260 500 270 L 500 400 L 0 400 Z" fill="#7FA4B5" opacity="0.5" />
+              <path d="M 0 240 Q 100 230 200 250 Q 300 270 400 250 Q 470 240 500 250" fill="none" stroke="#8B7355" strokeWidth="1" opacity="0.5" />
+              <g stroke="#D6CDBF" strokeWidth="2" fill="none">
+                <path d="M 60 60 Q 180 80 240 140 Q 300 200 380 220" />
+                <path d="M 80 200 L 220 200 L 220 280" />
+                <path d="M 280 60 L 280 200 L 380 200" />
+                <line x1="0" y1="160" x2="500" y2="160" strokeDasharray="2 6" />
+                <line x1="160" y1="0" x2="160" y2="400" strokeDasharray="2 6" />
+                <line x1="340" y1="0" x2="340" y2="400" strokeDasharray="2 6" />
+              </g>
+              <text x="50" y="50" fontFamily="Cormorant Garamond, serif" fontStyle="italic" fontSize="14" fill="#8B7355">Centro Storico</text>
+              <text x="380" y="290" fontFamily="Cormorant Garamond, serif" fontStyle="italic" fontSize="14" fill="#5C7A8C">Zona Porta Venezia</text>
+              <text x="100" y="320" fontFamily="Cormorant Garamond, serif" fontStyle="italic" fontSize="13" fill="#5C7A8C">Parco Sempione</text>
+              <g transform="translate(240 175)">
+                <circle r="40" fill="#B23A22" opacity="0.12" />
+                <circle r="24" fill="#B23A22" opacity="0.18" />
+                <circle r="11" fill="#B23A22" stroke="#FBF5EC" strokeWidth="3" />
+                <text y="-20" textAnchor="middle" fontFamily="DM Sans, sans-serif" fontSize="9" letterSpacing="2" fill="#B23A22" fontWeight="600">DA LORENZO</text>
+              </g>
+            </svg>
+            <div className="absolute bottom-3 right-3 bg-cream/90 backdrop-blur px-3 py-1.5 rounded-full font-sans text-[10px] tracking-caps uppercase text-ink-2">
+              Via Roma 42 · Milano
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
   )
 }

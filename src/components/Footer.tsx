@@ -1,102 +1,76 @@
-import Link from "next/link"
-import { restaurantInfo } from "@/data/restaurant"
+"use client"
 
-const footerLinks = [
-  { href: "/", label: "Home" },
-  { href: "/menu", label: "Menu" },
-  { href: "/about", label: "Chi Siamo" },
-  { href: "/contact", label: "Contatti" },
-]
+import Link from "next/link"
+import { usePathname } from "next/navigation"
+import { Icon } from "./ui"
+import { SHOP } from "@/lib/data"
+
+function FooterCol({ title, items }: { title: string; items: [string, string][] }) {
+  return (
+    <div>
+      <h5 className="font-sans text-[11px] tracking-[0.22em] uppercase text-cream/55 font-medium m-0 mb-4">{title}</h5>
+      <ul className="list-none p-0 m-0 flex flex-col gap-2">
+        {items.map(([label, href]) => (
+          <li key={label}>
+            <Link href={href} className="font-serif text-[16px] text-cream hover:text-amber transition-colors">
+              {label}
+            </Link>
+          </li>
+        ))}
+      </ul>
+    </div>
+  )
+}
 
 export default function Footer() {
-  const currentYear = new Date().getFullYear()
+  const pathname = usePathname()
+  if (pathname.startsWith("/admin")) return null
+  const year = new Date().getFullYear()
 
   return (
-    <footer className="bg-forno text-white/70">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-14 sm:py-18">
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-10 sm:gap-12">
-          <div className="col-span-2 lg:col-span-1">
-            <Link href="/" className="inline-flex flex-col leading-tight mb-4">
-              <span className="text-2xl font-serif font-bold text-white tracking-tight">
-                Da Lorenzo
-              </span>
-              <span className="text-[10px] font-sans text-white/40 tracking-[0.22em] uppercase mt-0.5">
-                Milano · dal 1985
-              </span>
-            </Link>
-            <p className="text-sm text-white/50 leading-relaxed max-w-xs">
-              Autentica cucina calabrese a Milano. Pizze cotte nel forno a legna, pasta fatta a
-              mano e ingredienti del nostro territorio.
+    <footer className="bg-forno text-cream/80 pt-16 md:pt-20 pb-8 mt-16 lg:pb-8">
+      <div className="max-w-content mx-auto px-6 md:px-8">
+        <div className="grid md:grid-cols-[1.4fr_1fr_1fr_1fr] gap-10 md:gap-14 pb-12 border-b border-cream/12">
+          <div>
+            <div className="font-serif font-medium text-[36px] text-cream leading-none">Da Lorenzo</div>
+            <p className="font-serif italic text-[17px] leading-snug text-cream/85 max-w-[340px] mt-3 mb-5">
+              Pizza calabrese a lievito madre. Nel cuore di Milano.
             </p>
-          </div>
-
-          <div>
-            <h4 className="text-caps text-white/40 text-[11px] mb-4">Pagine</h4>
-            <ul className="space-y-2.5">
-              {footerLinks.map((link) => (
-                <li key={link.href}>
-                  <Link
-                    href={link.href}
-                    className="text-sm text-white/60 hover:text-white transition-colors"
-                  >
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          <div>
-            <h4 className="text-caps text-white/40 text-[11px] mb-4">Orari</h4>
-            <ul className="space-y-2.5">
-              {restaurantInfo.hours.map((h, i) => (
-                <li key={i} className="text-sm">
-                  <span className="block text-white/80 font-medium">{h.days}</span>
-                  <span className="text-white/50">{h.time}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          <div className="col-span-2 lg:col-span-1">
-            <h4 className="text-caps text-white/40 text-[11px] mb-4">Contatti</h4>
-            <ul className="space-y-2.5 text-sm">
-              <li className="text-white/50">{restaurantInfo.address}</li>
-              <li>
-                <a
-                  href={`tel:${restaurantInfo.phone}`}
-                  className="text-white/60 hover:text-white transition-colors"
-                >
-                  {restaurantInfo.phone}
-                </a>
-              </li>
-              <li>
-                <a
-                  href={`mailto:${restaurantInfo.email}`}
-                  className="text-white/60 hover:text-white transition-colors"
-                >
-                  {restaurantInfo.email}
-                </a>
-              </li>
-            </ul>
-            <div className="flex gap-3 mt-5">
-              {restaurantInfo.social.map((s) => (
-                <a
-                  key={s.name}
-                  href={s.url}
-                  className="w-9 h-9 rounded-full bg-white/5 flex items-center justify-center text-white/40 hover:bg-tomato hover:text-white transition-all text-xs"
-                  aria-label={s.name}
-                >
-                  {s.name[0]}
+            <div className="font-sans text-[12px] leading-relaxed text-cream/55">
+              {SHOP.address}<br />
+              {SHOP.phone} · {SHOP.email}<br />
+              {SHOP.vat}
+            </div>
+            <div className="flex gap-2.5 mt-5">
+              {["Instagram", "Facebook", "TikTok"].map(s => (
+                <a key={s} href="#" aria-label={s}
+                  className="grid place-items-center w-9 h-9 rounded-full border border-cream/20 text-cream hover:bg-tomato hover:border-tomato transition-all">
+                  <span className="font-sans text-[10px] font-bold tracking-wider">{s[0]}</span>
                 </a>
               ))}
             </div>
           </div>
+          <FooterCol title="Cosa facciamo" items={[
+            ["Menù & Ordina", "/menu"],
+            ["Prenota un tavolo", "/reserve"],
+            ["Eventi privati", "/contact"],
+            ["Lavora con noi", "/contact"],
+          ]} />
+          <FooterCol title="La pizzeria" items={[
+            ["La nostra storia", "/about"],
+            ["Contatti", "/contact"],
+            ["FAQ", "/contact"],
+          ]} />
+          <FooterCol title="Legale" items={[
+            ["Privacy", "#"],
+            ["Cookies", "#"],
+            ["Termini di servizio", "#"],
+            ["Admin", "/admin"],
+          ]} />
         </div>
-
-        <div className="border-t border-white/5 mt-10 pt-6 flex flex-col sm:flex-row items-center justify-between gap-2 text-xs text-white/30">
-          <p>&copy; {currentYear} {restaurantInfo.name}. Tutti i diritti riservati.</p>
-          <p>P.IVA 01234567890</p>
+        <div className="pt-8 flex justify-between flex-wrap gap-4 font-sans text-[12px] text-cream/50">
+          <div>&copy; {year} Da Lorenzo Srl · Milano · {SHOP.vat}</div>
+          <div className="font-serif italic text-cream/70">&ldquo;Buona pizza, brava gente.&rdquo;</div>
         </div>
       </div>
     </footer>
