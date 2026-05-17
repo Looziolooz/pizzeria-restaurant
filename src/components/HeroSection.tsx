@@ -1,35 +1,40 @@
 import Link from "next/link"
-import { restaurantInfo, heroImages } from "@/data/restaurant"
+import { heroImages } from "@/data/restaurant"
 
 export default function HeroSection() {
   return (
-    <section className="relative min-h-[70vh] flex items-center overflow-hidden">
+    <section className="relative min-h-[80vh] sm:min-h-[90vh] flex items-center overflow-hidden">
       <div
-        className="absolute inset-0 bg-cover bg-center"
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{ backgroundImage: `url(${heroImages[0]})` }}
       />
-      <div className="absolute inset-0 bg-gradient-to-r from-black/75 via-black/60 to-black/40" />
-      <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-20 sm:py-28">
-        <div className="max-w-2xl">
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-serif font-bold text-white leading-tight mb-4">
-            {restaurantInfo.name}
-          </h1>
-          <p className="text-xl sm:text-2xl text-white/80 italic mb-2">{restaurantInfo.tagline}</p>
-          <p className="text-base sm:text-lg text-white/60 mb-8 max-w-lg leading-relaxed">
-            {restaurantInfo.description}
+      <div className="absolute inset-0 bg-gradient-to-r from-forno/80 via-forno/60 to-forno/30" />
+      <div className="absolute inset-0 bg-gradient-to-t from-sand/10 via-transparent to-transparent" />
+      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-sand to-transparent" />
+
+      <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-20 sm:py-28 w-full">
+        <div className="max-w-3xl">
+          <p className="text-eyebrow text-amber/80 mb-4 sm:mb-6 animate-fadein">
+            Tropea · Calabria · dal 2014
           </p>
-          <div className="flex flex-wrap gap-4">
+          <h1 className="text-[clamp(2.75rem,8vw,7.75rem)] font-serif font-bold text-white leading-[1.05] tracking-tight mb-6 animate-fadein [animation-delay:0.15s]">
+            Da Lorenzo
+          </h1>
+          <p className="text-lg sm:text-2xl text-white/75 italic font-serif max-w-xl mb-8 animate-fadein [animation-delay:0.3s]">
+            La vera pizza calabrese. Cotta nel forno a legna, servita con amore.
+          </p>
+          <div className="flex flex-wrap gap-4 animate-fadein [animation-delay:0.45s]">
             <Link
               href="/menu"
-              className="bg-accent hover:bg-accent/90 text-dark font-semibold px-8 py-3 rounded-full transition-all text-sm sm:text-base"
+              className="bg-tomato hover:bg-tomato-deep text-white font-semibold px-8 py-3.5 rounded-full transition-all duration-300 text-sm sm:text-base"
             >
               Scopri il Menu
             </Link>
             <Link
               href="/contact"
-              className="bg-white/10 hover:bg-white/20 text-white font-semibold px-8 py-3 rounded-full transition-all backdrop-blur-sm text-sm sm:text-base"
+              className="bg-white/10 hover:bg-white/20 text-white font-semibold px-8 py-3.5 rounded-full transition-all duration-300 backdrop-blur-sm border border-white/20 text-sm sm:text-base"
             >
-              Contattaci
+              Prenota un Tavolo
             </Link>
           </div>
         </div>
