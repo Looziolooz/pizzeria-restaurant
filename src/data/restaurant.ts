@@ -54,6 +54,14 @@ export const categories: Category[] = [
   { id: "bevande", name: "Bevande", slug: "bevande", description: "Vini, birre e soft drink" },
 ]
 
+const U = "https://images.unsplash.com"
+
+export const heroImages = [
+  `${U}/photo-1513104890138-7c749659a591?w=1600&q=85&auto=format&fit=crop`,
+  `${U}/photo-1593504049359-74330189a345?w=1600&q=85&auto=format&fit=crop`,
+  `${U}/photo-1565299624946-b28f40a0ae38?w=1600&q=85&auto=format&fit=crop`,
+]
+
 export const menuItems: MenuItem[] = [
   {
     id: "ant-1",
@@ -61,7 +69,7 @@ export const menuItems: MenuItem[] = [
     description: "Pane tostato con pomodori freschi, basilico e olio extravergine d'oliva",
     price: "€ 8.00",
     ingredients: ["Pomodori", "Basilico", "Olio EVO", "Pane casereccio"],
-    image: "/images/bruschetta.svg",
+    image: `${U}/photo-1572695157347-f3918b70c3b5?w=600&q=85&auto=format&fit=crop`,
     category: "antipasti",
   },
   {
@@ -70,7 +78,7 @@ export const menuItems: MenuItem[] = [
     description: "Mozzarella di bufala, pomodori cuore di bue e basilico fresco",
     price: "€ 10.00",
     ingredients: ["Mozzarella di bufala", "Pomodori", "Basilico", "Olio EVO"],
-    image: "/images/caprese.svg",
+    image: `${U}/photo-1608897013039-887f21d8c804?w=600&q=85&auto=format&fit=crop`,
     category: "antipasti",
   },
   {
@@ -79,7 +87,7 @@ export const menuItems: MenuItem[] = [
     description: "Calamari freschi impanati e fritti, serviti con salsa marinara",
     price: "€ 11.00",
     ingredients: ["Calamari", "Farina", "Limone", "Salsa marinara"],
-    image: "/images/calamari.svg",
+    image: `${U}/photo-1599487488170-d11ec9c172f0?w=600&q=85&auto=format&fit=crop`,
     category: "antipasti",
   },
   {
@@ -88,7 +96,7 @@ export const menuItems: MenuItem[] = [
     description: "Prosciutto crudo di Parma DOP con melone freschissimo",
     price: "€ 12.00",
     ingredients: ["Prosciutto crudo DOP", "Melone", "Rucola"],
-    image: "/images/prosciutto.svg",
+    image: `${U}/photo-1604908176997-125f25cc6f3d?w=600&q=85&auto=format&fit=crop`,
     category: "antipasti",
   },
   {
@@ -97,7 +105,7 @@ export const menuItems: MenuItem[] = [
     description: "Lattuga, pomodorini, olive, mais, tonno e uovo sodo",
     price: "€ 9.00",
     ingredients: ["Lattuga", "Pomodorini", "Olive", "Mais", "Tonno", "Uovo"],
-    image: "/images/insalata.svg",
+    image: `${U}/photo-1540420773420-3366772f4999?w=600&q=85&auto=format&fit=crop`,
     category: "insalate",
   },
   {
@@ -106,7 +114,7 @@ export const menuItems: MenuItem[] = [
     description: "Feta, olive kalamata, cetrioli, pomodori e cipolla rossa",
     price: "€ 9.50",
     ingredients: ["Feta", "Olive kalamata", "Cetrioli", "Pomodori", "Cipolla rossa"],
-    image: "/images/insalata.svg",
+    image: `${U}/photo-1529699211955-6be5b9d7020a?w=600&q=85&auto=format&fit=crop`,
     category: "insalate",
   },
   {
@@ -115,7 +123,7 @@ export const menuItems: MenuItem[] = [
     description: "Lattuga romana, croutons, scaglie di parmigiano e salsa cesare",
     price: "€ 10.00",
     ingredients: ["Lattuga romana", "Croutons", "Parmigiano", "Salsa cesare"],
-    image: "/images/insalata.svg",
+    image: `${U}/photo-1550304943-4f24f54ddde9?w=600&q=85&auto=format&fit=crop`,
     category: "insalate",
   },
   {
@@ -124,7 +132,7 @@ export const menuItems: MenuItem[] = [
     description: "Pomodoro, mozzarella fiordilatte e basilico fresco",
     price: "€ 8.00",
     ingredients: ["Pomodoro", "Mozzarella fiordilatte", "Basilico"],
-    image: "/images/pizza-margherita.svg",
+    image: `${U}/photo-1604068549290-dea0e4a305ca?w=600&q=85&auto=format&fit=crop`,
     category: "pizze",
   },
   {
@@ -133,7 +141,7 @@ export const menuItems: MenuItem[] = [
     description: "Pomodoro, mozzarella, salame piccante e origano",
     price: "€ 9.50",
     ingredients: ["Pomodoro", "Mozzarella", "Salame piccante", "Origano"],
-    image: "/images/pizza-diavola.svg",
+    image: `${U}/photo-1628840042765-356cda07504e?w=600&q=85&auto=format&fit=crop`,
     category: "pizze",
   },
   {
@@ -142,7 +150,7 @@ export const menuItems: MenuItem[] = [
     description: "Mozzarella, gorgonzola, parmigiano e taleggio",
     price: "€ 10.50",
     ingredients: ["Mozzarella", "Gorgonzola", "Parmigiano", "Taleggio"],
-    image: "/images/pizza-formaggi.svg",
+    image: `${U}/photo-1513104890138-7c749659a591?w=600&q=85&auto=format&fit=crop`,
     category: "pizze",
   },
   {
@@ -151,7 +159,7 @@ export const menuItems: MenuItem[] = [
     description: "Pomodoro, mozzarella, prosciutto cotto e funghi champignon",
     price: "€ 10.00",
     ingredients: ["Pomodoro", "Mozzarella", "Prosciutto cotto", "Funghi"],
-    image: "/images/pizza-prosciutto.svg",
+    image: `${U}/photo-1571997478779-2adcbbe9ab2f?w=600&q=85&auto=format&fit=crop`,
     category: "pizze",
   },
   {
@@ -160,7 +168,7 @@ export const menuItems: MenuItem[] = [
     description: "Pomodoro, mozzarella, acciughe, capperi e olive",
     price: "€ 9.50",
     ingredients: ["Pomodoro", "Mozzarella", "Acciughe", "Capperi", "Olive"],
-    image: "/images/pizza-napoletana.svg",
+    image: `${U}/photo-1565299507177-b0ac66763828?w=600&q=85&auto=format&fit=crop`,
     category: "pizze",
   },
   {
@@ -169,7 +177,7 @@ export const menuItems: MenuItem[] = [
     description: "Pomodoro, mozzarella, peperoni, zucchine, melanzane e olive",
     price: "€ 10.00",
     ingredients: ["Pomodoro", "Mozzarella", "Peperoni", "Zucchine", "Melanzane", "Olive"],
-    image: "/images/pizza-vegetariana.svg",
+    image: `${U}/photo-1593504049359-74330189a345?w=600&q=85&auto=format&fit=crop`,
     category: "pizze",
   },
   {
@@ -178,7 +186,7 @@ export const menuItems: MenuItem[] = [
     description: "Spaghetti con uovo, guanciale, pecorino e pepe nero",
     price: "€ 12.00",
     ingredients: ["Spaghetti", "Uovo", "Guanciale", "Pecorino", "Pepe"],
-    image: "/images/pasta-carbonara.svg",
+    image: `${U}/photo-1612874742237-6526221588e3?w=600&q=85&auto=format&fit=crop`,
     category: "paste",
   },
   {
@@ -187,7 +195,7 @@ export const menuItems: MenuItem[] = [
     description: "Penne con pomodoro, aglio, peperoncino e prezzemolo",
     price: "€ 10.00",
     ingredients: ["Penne", "Pomodoro", "Aglio", "Peperoncino", "Prezzemolo"],
-    image: "/images/pasta-arrabbiata.svg",
+    image: `${U}/photo-1621996346565-e3dbc646d9a9?w=600&q=85&auto=format&fit=crop`,
     category: "paste",
   },
   {
@@ -196,7 +204,7 @@ export const menuItems: MenuItem[] = [
     description: "Lasagna con ragù alla bolognese, besciamella e parmigiano",
     price: "€ 13.00",
     ingredients: ["Pasta all'uovo", "Ragù", "Besciamella", "Parmigiano"],
-    image: "/images/lasagna.svg",
+    image: `${U}/photo-1574894709920-11b28e7367e3?w=600&q=85&auto=format&fit=crop`,
     category: "paste",
   },
   {
@@ -205,7 +213,7 @@ export const menuItems: MenuItem[] = [
     description: "Trofie con pesto alla genovese, patate e fagiolini",
     price: "€ 11.00",
     ingredients: ["Trofie", "Pesto", "Patate", "Fagiolini", "Parmigiano"],
-    image: "/images/pasta-pesto.svg",
+    image: `${U}/photo-1473093295043-cdd812d0e601?w=600&q=85&auto=format&fit=crop`,
     category: "paste",
   },
   {
@@ -214,7 +222,7 @@ export const menuItems: MenuItem[] = [
     description: "Il classico dolce al cucchiaio con mascarpone, caffè e cacao",
     price: "€ 7.00",
     ingredients: ["Mascarpone", "Caffè", "Savoiardi", "Cacao", "Uova"],
-    image: "/images/tiramisu.svg",
+    image: `${U}/photo-1571877227200-a0d98ea607e9?w=600&q=85&auto=format&fit=crop`,
     category: "dolci",
   },
   {
@@ -223,7 +231,7 @@ export const menuItems: MenuItem[] = [
     description: "Panna cotta alla vaniglia con coulis di frutti di bosco",
     price: "€ 6.50",
     ingredients: ["Panna", "Vaniglia", "Frutti di bosco", "Zucchero"],
-    image: "/images/panna-cotta.svg",
+    image: `${U}/photo-1551024601-bec78aea704b?w=600&q=85&auto=format&fit=crop`,
     category: "dolci",
   },
   {
@@ -232,7 +240,7 @@ export const menuItems: MenuItem[] = [
     description: "Cannoli ripieni di ricotta dolce con gocce di cioccolato",
     price: "€ 7.50",
     ingredients: ["Ricotta", "Cioccolato", "Cannolo", "Zucchero a velo", "Pistacchi"],
-    image: "/images/cannoli.svg",
+    image: `${U}/photo-1623065422902-30a2d299bbe4?w=600&q=85&auto=format&fit=crop`,
     category: "dolci",
   },
   {
@@ -241,7 +249,7 @@ export const menuItems: MenuItem[] = [
     description: "Calice di vino italiano selezionato dalla nostra cantina",
     price: "€ 5.00",
     ingredients: ["Vino rosso o bianco"],
-    image: "/images/wine.svg",
+    image: `${U}/photo-1510812431401-41d2bd2722f3?w=600&q=85&auto=format&fit=crop`,
     category: "bevande",
   },
   {
@@ -250,7 +258,7 @@ export const menuItems: MenuItem[] = [
     description: "Birra lager italiana, 33cl",
     price: "€ 4.00",
     ingredients: ["Birra lager"],
-    image: "/images/beer.svg",
+    image: `${U}/photo-1558211582-34b16d2630a6?w=600&q=85&auto=format&fit=crop`,
     category: "bevande",
   },
   {
@@ -259,7 +267,7 @@ export const menuItems: MenuItem[] = [
     description: "Acqua naturale o frizzante, 75cl",
     price: "€ 2.50",
     ingredients: ["Acqua"],
-    image: "/images/water.svg",
+    image: `${U}/photo-1568841111683-0fab835bb06c?w=600&q=85&auto=format&fit=crop`,
     category: "bevande",
   },
   {
@@ -268,7 +276,7 @@ export const menuItems: MenuItem[] = [
     description: "Coca-Cola o Coca-Cola Zero, 33cl",
     price: "€ 3.00",
     ingredients: ["Coca-Cola"],
-    image: "/images/soda.svg",
+    image: `${U}/photo-1553177810-e784b193ab0c?w=600&q=85&auto=format&fit=crop`,
     category: "bevande",
   },
 ]
