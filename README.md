@@ -1,36 +1,63 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Lievita — Pizzeria a Tropea 🍕
 
-## Getting Started
+Demo **Next.js 14 (App Router) + TypeScript + Tailwind CSS** che ricrea il sito
+della pizzeria calabrese a lievito madre **Lievita**, con estetica **Bold Kinetic**
+(tipografia condensed-uppercase, palette bianco / giallo `#FFDD00` / verde foresta
+`#075C40` / azzurro `#74C3D5`, marquee inclinati scorrevoli, cursore custom,
+intro curtain, reveal-on-scroll).
 
-First, run the development server:
+Tutti i dati sono **hardcoded** (`src/lib/data.ts`); ordini e carrello sono
+persistiti in `localStorage`.
+
+## Avvio
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Apri [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Pagine
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+| Percorso              | Cosa                                                            |
+| --------------------- | -------------------------------------------------------------- |
+| `/`                   | Home: hero, parallax 5 pizze, why-us, popolari, storia, mappa  |
+| `/menu`               | Menù & ordina: 8 categorie, carrello sticky, delivery/asporto  |
+| `/checkout`           | Dati cliente, indirizzo/ritiro, slot orari, pagamento          |
+| `/confirm/[orderId]`  | Conferma ordine con timeline di stato                          |
+| `/reserve`            | Prenotazione tavolo: calendario 14 giorni, slot, ospiti        |
+| `/contact`            | Contatti + form                                                |
+| `/admin`              | Dashboard gestione — **codice demo: `0000`**                   |
 
-## Learn More
+## Admin
 
-To learn more about Next.js, take a look at the following resources:
+`/admin` (codice `0000`) — dashboard con KPI, ordini live in Kanban (gli ordini
+fatti dal sito compaiono qui in tempo reale via store condiviso), storico,
+prodotti, magazzino (21 materie prime calabresi) e prenotazioni. Il pulsante
+**Reset demo** ripristina i dati mock.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Struttura
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```
+src/
+  app/
+    layout.tsx              # root: StoreProvider + cursore + <html>/<body>
+    globals.css             # Bold Kinetic + override Lievita + Tailwind
+    (site)/                 # route group con Header/Footer/IntroLoader
+      layout.tsx
+      page.tsx              # Home
+      menu/ checkout/ reserve/ contact/
+      confirm/[orderId]/
+    admin/page.tsx          # dashboard (no header/footer)
+  components/                # kinetic, illustrations, Header, Footer, form,
+                             # parallax, customer-home, customer-flows, admin
+  lib/
+    data.ts                 # SHOP / MENU / INVENTORY / mock orders+reservations
+    store.tsx               # Context cart+ordini+prenotazioni, hooks, navigazione
+    types.ts
+```
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+I font (Knockout/Gotham) usano sostituti Google Fonts (Bebas Neue / Anton /
+Oswald / Montserrat). Le foto sono placeholder Unsplash, sostituibili con foto
+reali del locale.

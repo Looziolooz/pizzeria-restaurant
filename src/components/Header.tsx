@@ -1,104 +1,113 @@
-"use client"
+"use client";
 
-import Link from "next/link"
-import { usePathname } from "next/navigation"
-import { useCart } from "@/lib/store"
-import { Icon } from "./ui"
-import { SHOP } from "@/lib/data"
+// LIEVITA — Header (Bold Kinetic)
+// Fixed, split nav L/R, centered wordmark, ALL CAPS, animated underline.
 
-export default function Header() {
-  const pathname = usePathname()
-  const { count } = useCart()
+import { useEffect, useState } from "react";
+import { usePathname } from "next/navigation";
+import { NavLink, StatusPill } from "./kinetic";
+import { Icon } from "./illustrations";
+import { useCart, useNavigate } from "@/lib/store";
 
-  const isAdmin = pathname.startsWith("/admin")
-  if (isAdmin) return null
+export function Header() {
+  const pathname = usePathname();
+  const { count } = useCart();
+  const nav = useNavigate();
+  const [scrolled, setScrolled] = useState(false);
+  useEffect(() => {
+    const fn = () => setScrolled(window.scrollY > 40);
+    window.addEventListener("scroll", fn, { passive: true });
+    fn();
+    return () => window.removeEventListener("scroll", fn);
+  }, []);
 
-  const here = (p: string) => pathname === p
-
-  const link = (href: string, label: string) => (
-    <Link
-      href={href}
-      className={`relative font-sans text-[13px] font-medium tracking-[0.02em] py-2 transition-colors duration-200 ease-gentle ${
-        here(href) ? "text-tomato" : "text-ink hover:text-tomato"
-      }`}
-    >
-      {label}
-      {here(href) && <span className="absolute -bottom-[2px] left-0 right-0 h-[2px] bg-tomato rounded-full" />}
-    </Link>
-  )
+  const here = (n: string) => {
+    if (n === "home") return pathname === "/";
+    if (n === "menu") return pathname.startsWith("/menu");
+    return pathname.startsWith(`/${n}`);
+  };
+  const menuActive =
+    pathname.startsWith("/menu") || pathname.startsWith("/checkout") || pathname.startsWith("/confirm");
 
   return (
-    <header className="sticky top-0 z-40 bg-sand/92 backdrop-blur-xl border-b border-line">
-      <div className="max-w-page mx-auto px-6 md:px-8 h-[78px] grid grid-cols-[1fr_auto_1fr] items-center gap-4">
+    <header
+      className="fixed top-0 left-0 right-0 z-40"
+      style={{
+        background: scrolled ? "rgba(255,255,255,0.96)" : "rgba(255,255,255,0.86)",
+        borderBottom: "1px solid var(--bk-border)",
+        transition: "background .25s var(--ease-signature)",
+      }}
+    >
+      <div className="grid grid-cols-[1fr_auto_1fr] items-center gap-4 px-4 md:px-9 py-3 md:py-4 max-w-page mx-auto">
+        {/* LEFT NAV */}
         <nav className="hidden md:flex items-center gap-7 justify-self-start">
-          {link("/", "Home")}
-          {link("/menu", "Menù & Ordina")}
-          {link("/reserve", "Prenota un tavolo")}
+          <NavLink to="home" active={here("home")}>Home</NavLink>
+          <NavLink to="menu" active={menuActive}>Menù &amp; Ordina</NavLink>
+          <NavLink to="reserve" active={here("reserve")}>Prenota</NavLink>
         </nav>
 
-        <Link href="/" className="flex flex-col items-center justify-center leading-none group">
-          <span className="font-serif font-medium text-[28px] md:text-[30px] tracking-[0.02em] text-ink group-hover:text-tomato transition-colors">
-            Da Lorenzo
+        {/* CENTER WORDMARK */}
+        <button onClick={() => nav("home")} className="flex flex-col items-center leading-none">
+          <span className="lv-wordmark text-[28px] md:text-[38px]">LIEVITA</span>
+          <span className="font-display uppercase tracking-[0.2em] text-[9px] md:text-[10px] text-bk-green/75 mt-1">
+            Tropea · dal 2014
           </span>
-          <span className="font-sans text-[9px] tracking-[0.32em] uppercase text-ink-2 mt-1">Milano · dal 1985</span>
-        </Link>
+        </button>
 
+        {/* RIGHT */}
         <div className="flex items-center gap-3 md:gap-5 justify-self-end">
-          <Link
-            href="/contact"
-            className={`hidden md:inline-flex font-sans text-[13px] font-medium py-2 transition-colors duration-200 ease-gentle ${
-              here("/contact") ? "text-tomato" : "text-ink hover:text-tomato"
-            }`}
-          >
-            Contatti
-          </Link>
-          <a
-            href={`tel:${SHOP.phone}`}
-            className="hidden md:inline-flex items-center gap-2 font-sans text-[12px] tracking-[0.02em] text-ink-2 hover:text-tomato transition-colors"
-          >
-            <Icon name="phone" size={14} /> {SHOP.phone}
-          </a>
-          <Link
-            href="/menu"
-            className="relative inline-flex items-center gap-2 px-4 py-2 rounded-full bg-ink text-cream font-sans text-[12px] tracking-caps uppercase font-medium hover:bg-tomato transition-colors duration-200 ease-gentle"
-          >
-            <Icon name="bag" size={14} />
-            <span className="hidden sm:inline">Ordina</span>
+          <NavLink to="contact" active={here("contact")}>
+            <span className="hidden md:inline">Contatti</span>
+            <span className="md:hidden">Info</span>
+          </NavLink>
+          <span className="hidden lg:inline-flex">
+            <StatusPill state="open">Aperto fino alle 23:30</StatusPill>
+          </span>
+          <button onClick={() => nav("menu")} className="lv-btn lv-btn--dark lv-btn--sm relative">
+            ORDINA
             {count > 0 && (
-              <span className="ml-1 grid place-items-center min-w-[20px] h-[20px] rounded-full bg-amber text-forno text-[10px] font-bold px-1.5">
+              <span
+                className="absolute -top-2 -right-2 grid place-items-center min-w-[22px] h-[22px] rounded-full bg-bk-yellow text-bk-green text-[11px] font-bold px-1.5 font-display"
+                style={{ boxShadow: "0 0 0 2px var(--bk-green)" }}
+              >
                 {count}
               </span>
             )}
-          </Link>
-          <Link
-            href="/admin"
-            className="hidden md:inline-flex items-center justify-center w-9 h-9 rounded-full border border-line-strong text-ink-2 hover:text-ink hover:border-ink transition-colors"
+          </button>
+          <button
+            onClick={() => nav("admin")}
+            className="hidden md:inline-grid place-items-center w-9 h-9 rounded-full border border-bk-green text-bk-green hover:bg-bk-green hover:text-bk-yellow transition-colors"
             title="Admin"
+            aria-label="Admin"
           >
-            <Icon name="user" size={15} />
-          </Link>
+            <Icon name="user" size={14} />
+          </button>
         </div>
       </div>
 
-      <div className="md:hidden border-t border-line px-3 py-2 flex gap-1 overflow-x-auto bg-sand">
-        {[
-          ["/", "Home"],
-          ["/menu", "Menù"],
-          ["/reserve", "Prenota"],
-          ["/contact", "Contatti"],
-          ["/admin", "Admin"],
-        ].map(([href, label]) => (
-          <Link
-            key={href}
-            href={href}
-            className={`flex-shrink-0 px-3 py-1.5 rounded-full text-[11px] tracking-[0.1em] uppercase font-medium font-sans transition-colors ${
-              here(href) ? "bg-ink text-cream" : "text-ink-2"
+      {/* Mobile second row */}
+      <div className="md:hidden border-t border-bk-border px-3 py-1.5 flex gap-1 overflow-x-auto bg-bk-white">
+        {([
+          ["home", "Home"],
+          ["menu", "Menù"],
+          ["reserve", "Prenota"],
+          ["contact", "Contatti"],
+          ["admin", "Admin"],
+        ] as const).map(([n, l]) => (
+          <button
+            key={n}
+            onClick={() => nav(n)}
+            className={`shrink-0 px-3 py-1.5 font-display uppercase text-[11px] tracking-[0.1em] font-semibold ${
+              here(n) ? "bg-bk-green text-bk-yellow" : "text-bk-green"
             }`}
+            style={{ borderRadius: 0 }}
           >
-            {label}
-          </Link>
+            {l}
+          </button>
         ))}
       </div>
     </header>
-  )
+  );
 }
+
+export default Header;
