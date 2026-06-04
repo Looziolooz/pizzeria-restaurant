@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" role="img" aria-label="Lievita">
+  <rect width="64" height="64" rx="14" fill="#075C40" />
+  <!-- Bold "L" monogram (Bold Kinetic wordmark) -->
+  <polygon points="20,13 31,13 31,40 47,40 47,51 20,51" fill="#FFDD00" />
+  <!-- sourdough / pizza dot accent -->
+  <circle cx="42.5" cy="20.5" r="5.5" fill="#FFDD00" />
+</svg>

@@ -1,5 +1,7 @@
 # Lievita — Pizzeria a Tropea 🍕
 
+**🇮🇹 Italiano · [🇸🇪 Svenska](./README.sv.md) · [🇬🇧 English](./README.en.md)**
+
 Demo **Next.js 14 (App Router) + TypeScript + Tailwind CSS** che ricrea il sito
 della pizzeria calabrese a lievito madre **Lievita**, con estetica **Bold Kinetic**
 (tipografia condensed-uppercase, palette bianco / giallo `#FFDD00` / verde foresta
@@ -43,6 +45,7 @@ prodotti, magazzino (21 materie prime calabresi) e prenotazioni. Il pulsante
 src/
   app/
     layout.tsx              # root: StoreProvider + cursore + <html>/<body>
+    icon.svg                # favicon (monogramma "L" Bold Kinetic)
     globals.css             # Bold Kinetic + override Lievita + Tailwind
     (site)/                 # route group con Header/Footer/IntroLoader
       layout.tsx
@@ -53,8 +56,8 @@ src/
   components/                # kinetic, illustrations, Header, Footer, form,
                              # parallax, customer-home, customer-flows, admin
   lib/
-    data.ts                 # SHOP / MENU / INVENTORY / mock orders+reservations
-    store.tsx               # Context cart+ordini+prenotazioni, hooks, navigazione
+    data.ts                 # SHOP / MENU / INVENTORY / mock ordini+prenotazioni
+    store.tsx               # Context carrello+ordini+prenotazioni, hooks, navigazione
     types.ts
 ```
 
