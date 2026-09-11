@@ -1,14 +1,21 @@
 "use client";
 
-// LIEVITA — Homepage (Bold Kinetic)
+// LIEVITA — Homepage (per mockup approvato Main.dc.html / HomeMobile.dc.html)
 // Full-bleed color blocks alternating white / yellow / green / blue,
 // signature tilted marquees between sections, huge condensed-caps display
-// type, round popping CTAs, lots of motion.
+// type, round popping CTAs, photo strips, lots of motion.
 
+import { useEffect, useRef } from "react";
 import { Marquee, Reveal, Btn, ArrowDoodle, StarDoodle, Squiggle } from "./kinetic";
 import { Icon, PizzaThumb } from "./illustrations";
-import { ParallaxShowcase } from "./parallax";
-import { SHOP, PIZZA_PHOTOS, findMenuItem, formatEUR } from "@/lib/data";
+import {
+  SHOP,
+  PIZZA_PHOTOS,
+  HOME_TILES,
+  LUNCH_DEAL,
+  findMenuItem,
+  formatEUR,
+} from "@/lib/data";
 import { useCart, useNavigate } from "@/lib/store";
 import type { MenuItem } from "@/lib/types";
 
@@ -16,33 +23,46 @@ import type { MenuItem } from "@/lib/types";
 //  HOME
 // ═══════════════════════════════════════════════════════════════════
 export function Home() {
-  const popular = ["p-margherita", "p-nduja", "p-tropea", "p-bergamotto", "p-diavola", "p-mortadella"]
-    .map((id) => findMenuItem(id))
-    .filter(Boolean) as MenuItem[];
+  const tiles = HOME_TILES.map((t) => findMenuItem(t.id)).filter(
+    (m): m is MenuItem => Boolean(m)
+  );
 
   return (
     <div style={{ background: "var(--bk-white)" }}>
       <Hero />
-      <Marquee words={["FORNO A LEGNA", "LIEVITO MADRE", "100% CALABRESE", "FRESCO OGNI GIORNO", "TROPEA"]} color="yellow" direction="left" tilt="down" />
+      <Marquee
+        words={["FORNO A LEGNA", "LIEVITO MADRE", "100% CALABRESE", "FRESCO OGNI GIORNO", "TROPEA"]}
+        color="yellow"
+        direction="left"
+        tilt="down"
+      />
       <WhyUs />
-      <Marquee words={["DELIVERY", "ASPORTO", "PRENOTA", "ORDINA", "SUBITO!"]} color="green" direction="right" tilt="up" />
-      <ParallaxShowcase />
-      <Marquee words={["28 COPERTI", "DUE PASSI DAL MARE", "DAL 2014", "BUONA PIZZA", "BRAVA GENTE"]} color="blue" direction="left" tilt="down" />
-      <PopularPizze popular={popular} />
-      <Marquee words={["PRANZO A €12", "LUNEDÌ → VENERDÌ", "PIZZA + BIBITA + CAFFÈ"]} color="yellow" direction="right" tilt="up" />
+      <PopularPizze tiles={tiles} />
+      <Marquee
+        words={["28 COPERTI", "DUE PASSI DAL MARE", "DAL 2014", "BUONA PIZZA", "BRAVA GENTE"]}
+        color="blue"
+        direction="right"
+        tilt="up"
+      />
+      <PhotoStrip />
       <Story />
-      <Marquee words={["LARGO GALLUPPI 5", "TROPEA", "CALABRIA"]} color="green" direction="left" tilt="down" />
+      <Marquee
+        thin
+        color="green"
+        direction="left"
+        words={[`Pranzo a €${LUNCH_DEAL.price}`, LUNCH_DEAL.days, LUNCH_DEAL.includes]}
+      />
       <FindUs />
     </div>
   );
 }
 
-// ─── HERO (white block, huge display, photo right) ────────────────
+// ─── HERO (white block, huge display, photo disc right) ────────────
 function Hero() {
   const nav = useNavigate();
   return (
     <section className="relative overflow-hidden" style={{ background: "var(--bk-white)", paddingTop: "120px" }}>
-      <div className="max-w-page mx-auto px-5 md:px-12 pb-16 md:pb-24 grid md:grid-cols-[1.35fr_1fr] gap-10 md:gap-12 items-center">
+      <div className="max-w-page mx-auto px-5 md:px-12 pb-16 md:pb-24 grid md:grid-cols-[1.3fr_1fr] gap-10 md:gap-12 items-center">
         <div className="relative">
           <Reveal>
             <div className="lv-eyebrow mb-4 md:mb-6 flex items-center gap-3">
@@ -84,7 +104,7 @@ function Hero() {
             <div className="flex flex-wrap gap-x-7 gap-y-3 mt-9 md:mt-11">
               {(
                 [
-                  ["clock", "Pronta in 25 min"],
+                  ["clock", `Pronta in ${SHOP.prep_minutes} min`],
                   ["bike", `Delivery ${SHOP.delivery_radius_km} km`],
                   ["store", `Asporto da ${formatEUR(SHOP.pickup_min)}`],
                 ] as const
@@ -95,49 +115,62 @@ function Hero() {
               ))}
             </div>
           </Reveal>
+
+          {/* Star doodle (desktop, come nel mockup) */}
+          <StarDoodle className="absolute hidden md:block" style={{ width: 60, top: -8, right: 120, transform: "rotate(-12deg)" }} />
         </div>
 
-        {/* Right: photo + popping round CTA + doodle */}
-        <div className="relative flex items-center justify-center min-h-[360px] md:min-h-[560px]">
-          {/* Yellow glow halo */}
-          <div className="absolute inset-[8%] rounded-full" style={{ background: "radial-gradient(circle at 50% 50%, rgba(255,221,0,0.85) 0%, transparent 60%)", filter: "blur(20px)" }} />
-          {/* Pizza photo as round disc */}
-          <Reveal className="relative z-[1]">
-            <div className="w-[300px] h-[300px] md:w-[460px] md:h-[460px] rounded-full overflow-hidden" style={{ boxShadow: "var(--shadow-product)" }}>
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src="https://images.unsplash.com/photo-1604068549290-dea0e4a305ca?w=1200&q=85&auto=format&fit=crop"
-                alt="Margherita"
-                className="w-full h-full object-cover"
-                loading="eager"
+        {/* Right: photo disc on flat yellow halo + popping round CTA + doodles */}
+        <div className="relative flex items-center justify-center min-h-[400px] md:min-h-[640px]">
+          <Reveal>
+            <div className="relative w-[300px] h-[300px] md:w-[520px] md:h-[520px] md:translate-x-12">
+              {/* Flat yellow circle, offset +32 x / y (no gradient, no blur) */}
+              <div
+                className="absolute w-[300px] h-[300px] md:w-[520px] md:h-[520px] rounded-full"
+                style={{ background: "var(--bk-yellow)", left: 32, top: 32 }}
               />
+              {/* Pizza photo as round disc */}
+              <div className="absolute left-0 top-0 w-[300px] h-[300px] md:w-[520px] md:h-[520px] rounded-full overflow-hidden">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={PIZZA_PHOTOS.hero}
+                  alt="Margherita"
+                  className="w-full h-full object-cover"
+                  loading="eager"
+                />
+              </div>
             </div>
           </Reveal>
           {/* Popping CTA */}
           <button
             onClick={() => nav("menu")}
-            className="lv-cta-round lv-cta-round--dark absolute"
-            style={{ right: "-10px", bottom: "30px", animationDelay: "300ms" }}
+            className="lv-cta-round lv-cta-round--dark absolute left-0 md:left-6 bottom-0 md:bottom-8 z-[1]"
+            style={{
+              width: "clamp(120px, 10.5vw, 152px)",
+              height: "clamp(120px, 10.5vw, 152px)",
+              fontSize: "clamp(17px, 1.5vw, 21px)",
+              animationDelay: "300ms",
+            }}
           >
             ORDINA
             <br />
             SUBITO!
           </button>
-          {/* Doodle arrow */}
-          <ArrowDoodle className="absolute hidden md:block" style={{ width: 140, top: 30, right: -10, transform: "rotate(28deg)" }} color="var(--bk-teal)" />
-          {/* Star */}
-          <StarDoodle className="absolute" style={{ width: 60, top: 8, left: -10, transform: "rotate(-12deg)" }} />
+          {/* Doodle arrow (desktop only) */}
+          <ArrowDoodle className="absolute hidden md:block" style={{ width: 140, top: 0, left: 12, transform: "rotate(28deg)" }} color="var(--bk-teal)" />
+          {/* Star doodle (mobile) */}
+          <StarDoodle className="absolute md:hidden" style={{ width: 48, top: 0, left: 8, transform: "rotate(-12deg)" }} />
         </div>
       </div>
     </section>
   );
 }
 
-// ─── WHY US (green block, 4 features) ─────────────────────────────
+// ─── WHY US (green block, 4 big numbered features) ────────────────
 function WhyUs() {
   const features = [
     { num: "01", title: "Farine bio", body: "Macinate a pietra, da grani italiani selezionati." },
-    { num: "02", title: "Lievito madre", body: "24 ore di lievitazione naturale. Digeribile, leggera." },
+    { num: "02", title: "Lievito madre", body: `${SHOP.leavening_hours} ore di lievitazione naturale. Digeribile, leggera.` },
     { num: "03", title: "Topping calabrese", body: "Filiere corte, biologico, di stagione." },
     { num: "04", title: "Tagliata a tavola", body: "Arriva già a spicchi. Si assaggia, si scambia." },
   ];
@@ -153,17 +186,15 @@ function WhyUs() {
           <h2 className="lv-h-l text-bk-yellow max-w-[1100px]">
             PIZZA VERA.
             <br />
-            <span className="lv-stroke" style={{ color: "transparent", WebkitTextStroke: "2px var(--bk-yellow)" }}>FATTA COME SI DEVE.</span>
+            <span className="lv-stroke lv-stroke--yellow">FATTA COME SI DEVE.</span>
           </h2>
         </Reveal>
         <Reveal stagger className="grid sm:grid-cols-2 lg:grid-cols-4 gap-y-12 gap-x-8 mt-14 md:mt-20">
           {features.map((f) => (
             <div key={f.num} className="flex flex-col gap-3">
-              <div className="w-14 h-14 rounded-full grid place-items-center font-display font-bold text-[22px]" style={{ background: "var(--bk-yellow)", color: "var(--bk-green)" }}>
-                {f.num}
-              </div>
+              <div className="font-display-xl text-bk-yellow text-[64px] md:text-[96px] leading-[0.85]">{f.num}</div>
               <h3 className="lv-h3 text-bk-white mt-1">{f.title}</h3>
-              <p className="text-[15px] leading-snug max-w-[280px]" style={{ color: "rgba(255,255,255,0.85)" }}>
+              <p className="text-[15px] leading-snug max-w-[280px] font-support" style={{ color: "rgba(255,255,255,0.85)" }}>
                 {f.body}
               </p>
             </div>
@@ -176,11 +207,11 @@ function WhyUs() {
   );
 }
 
-// ─── POPULAR PIZZE (yellow block, grid) ───────────────────────────
-function PopularPizze({ popular }: { popular: MenuItem[] }) {
+// ─── LE PIZZE DEL MOMENTO (white block, 6 tiles) ───────────────────
+function PopularPizze({ tiles }: { tiles: MenuItem[] }) {
   const nav = useNavigate();
   return (
-    <section style={{ background: "var(--bk-yellow)" }} className="relative">
+    <section style={{ background: "var(--bk-white)" }} className="relative">
       <div className="max-w-page mx-auto px-5 md:px-12 py-20 md:py-28">
         <div className="flex items-end justify-between flex-wrap gap-5 mb-12 md:mb-16">
           <Reveal>
@@ -194,14 +225,17 @@ function PopularPizze({ popular }: { popular: MenuItem[] }) {
             </h2>
           </Reveal>
           <Reveal>
-            <button onClick={() => nav("menu")} className="lv-link text-bk-green text-[15px]">
+            <button
+              onClick={() => nav("menu")}
+              className="lv-link text-bk-green text-[15px] inline-flex items-center min-h-[44px]"
+            >
               Vai a tutto il menù →
             </button>
           </Reveal>
         </div>
 
-        <Reveal stagger className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-x-5 gap-y-10">
-          {popular.map((p) => (
+        <Reveal stagger className="grid grid-cols-2 lg:grid-cols-3 gap-x-4 md:gap-x-8 gap-y-8 md:gap-y-12">
+          {tiles.map((p) => (
             <PizzaCard key={p.id} item={p} />
           ))}
         </Reveal>
@@ -212,76 +246,159 @@ function PopularPizze({ popular }: { popular: MenuItem[] }) {
 
 export function PizzaCard({ item }: { item: MenuItem }) {
   const cart = useCart();
-  const nav = useNavigate();
   const inCart = cart.items.find((i) => i.id === item.id);
+  const tile = HOME_TILES.find((t) => t.id === item.id);
+  const palette = tile?.palette ?? "yellow";
+  const bg = palette === "green" ? "var(--bk-green)" : palette === "blue" ? "var(--bk-blue)" : "var(--bk-yellow)";
+  const numColor = palette === "green" ? "var(--bk-yellow)" : "var(--bk-green)";
+  const stickerBg = palette === "green" ? "var(--bk-yellow)" : "var(--bk-green)";
+  const stickerColor = palette === "green" ? "var(--bk-green)" : "var(--bk-yellow)";
+  const photo = tile?.photo ?? item.photo;
+
   return (
-    <div className="group flex flex-col gap-3">
-      <button
-        onClick={() => {
-          if (!inCart) cart.add(item.id);
-          else nav("menu");
-        }}
-        className="block aspect-square overflow-hidden relative bg-bk-white text-left"
-        data-cursor-hover
-      >
-        {item.photo ? (
-          // eslint-disable-next-line @next/next/no-img-element
-          <img src={item.photo} alt={item.name} loading="lazy" className="w-full h-full object-cover transition-transform duration-700 ease-sig group-hover:scale-110" />
-        ) : (
-          <div className="w-full h-full grid place-items-center bg-bk-white">
-            <PizzaThumb size={180} />
+    <article className="group flex flex-col gap-3">
+      <div className="lv-tile" style={{ background: bg }}>
+        {tile && (
+          <div
+            className="absolute top-2 left-3 md:top-4 md:left-5 font-display-xl leading-none text-[24px] md:text-[40px]"
+            style={{ color: numColor }}
+          >
+            {tile.num}
           </div>
         )}
-        {item.featured && (
-          <span className="absolute top-2 left-2 lv-tag lv-tag--hot" style={{ background: "var(--bk-green)", color: "var(--bk-yellow)", borderColor: "var(--bk-green)" }}>
-            ★ Forno
-          </span>
+        {/* Tags top-right */}
+        <div className="absolute top-3 right-3 md:top-4 md:right-4 flex flex-col items-end gap-2 z-[1]">
+          {item.featured && (
+            <span className={`lv-tag ${palette === "green" ? "lv-tag--hot" : "lv-tag--solid"}`}>★ Forno</span>
+          )}
+          {item.vegan && <span className="lv-tag lv-tag--vg">VG</span>}
+        </div>
+        {photo ? (
+          <div className="lv-tile-disc">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src={photo} alt={item.name} loading="lazy" className="w-full h-full object-cover" />
+          </div>
+        ) : (
+          <div className="lv-tile-disc">
+            <PizzaThumb size={200} />
+          </div>
         )}
-        {item.vegan && <span className="absolute top-2 right-2 lv-tag lv-tag--vg">VG</span>}
-      </button>
-      <div className="flex items-baseline justify-between gap-2">
-        <h3 className="font-display uppercase font-semibold leading-[0.95] text-bk-green text-[22px] m-0">{item.name}</h3>
-        <div className="font-display font-bold text-bk-green text-[18px]">{formatEUR(item.price)}</div>
+        <div className="lv-price-sticker absolute right-2 bottom-2 md:right-[18px] md:bottom-[18px]" style={{ background: stickerBg, color: stickerColor }}>
+          {formatEUR(item.price)}
+        </div>
       </div>
-      <p className="text-bk-ink text-[13px] leading-snug m-0">{item.desc.split(",").slice(0, 2).join(",")}.</p>
+      <h3 className="font-display uppercase font-semibold leading-[0.95] text-bk-green text-[18px] md:text-[28px] m-0">{item.name}</h3>
+      <p className="text-bk-ink text-[13px] md:text-[14px] leading-snug m-0 font-support">{item.desc.split(",").slice(0, 2).join(",")}.</p>
       {inCart ? (
         <div className="inline-flex items-center gap-1 self-start">
-          <button onClick={() => cart.update(item.id, inCart.qty - 1)} className="w-8 h-8 grid place-items-center bg-bk-green text-bk-yellow">
+          <button
+            onClick={() => cart.update(item.id, inCart.qty - 1)}
+            aria-label="Togli una"
+            className="w-11 h-11 md:w-8 md:h-8 grid place-items-center bg-bk-green text-bk-yellow"
+          >
             <Icon name="minus" size={14} />
           </button>
           <span className="font-display font-bold text-bk-green min-w-[24px] text-center">{inCart.qty}</span>
-          <button onClick={() => cart.update(item.id, inCart.qty + 1)} className="w-8 h-8 grid place-items-center bg-bk-green text-bk-yellow">
+          <button
+            onClick={() => cart.update(item.id, inCart.qty + 1)}
+            aria-label="Aggiungi una"
+            className="w-11 h-11 md:w-8 md:h-8 grid place-items-center bg-bk-green text-bk-yellow"
+          >
             <Icon name="plus" size={14} />
           </button>
         </div>
       ) : (
-        <Btn size="sm" variant="dark" onClick={() => cart.add(item.id)}>
+        <Btn size="sm" variant="dark" className="min-h-[44px]" onClick={() => cart.add(item.id)}>
           <Icon name="plus" size={12} /> Aggiungi
         </Btn>
       )}
-    </div>
+    </article>
   );
 }
 
-// ─── STORY (white block, photo + copy + numbers) ──────────────────
+// ─── PHOTO STRIP (two tilted rows, light parallax, center sticker) ─
+function PhotoStrip() {
+  const rowTop = useRef<HTMLDivElement>(null);
+  const rowBottom = useRef<HTMLDivElement>(null);
+  const photos = [...PIZZA_PHOTOS.strip, ...PIZZA_PHOTOS.strip];
+
+  useEffect(() => {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    let raf = 0;
+    const onScroll = () => {
+      cancelAnimationFrame(raf);
+      raf = requestAnimationFrame(() => {
+        const y = window.scrollY || 0;
+        const base = window.innerWidth < 768 ? { a: -80, b: -20 } : { a: -140, b: -40 };
+        if (rowTop.current) rowTop.current.style.transform = `translateX(${base.a + y * 0.15}px)`;
+        if (rowBottom.current) rowBottom.current.style.transform = `translateX(${base.b - y * 0.15}px)`;
+      });
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    onScroll();
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      cancelAnimationFrame(raf);
+    };
+  }, []);
+
+  return (
+    <section className="lv-strip">
+      <div className="lv-strip-inner">
+        <div ref={rowTop} className="lv-strip-row" style={{ transform: "translateX(-140px)" }}>
+          {photos.map((photo, i) => (
+            <div key={`a${i}`} className="lv-strip-card">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src={photo} alt="" loading="lazy" />
+            </div>
+          ))}
+        </div>
+        <div ref={rowBottom} className="lv-strip-row" style={{ transform: "translateX(-40px)" }}>
+          {photos.map((photo, i) => (
+            <div key={`b${i}`} className="lv-strip-card">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src={photo} alt="" loading="lazy" />
+            </div>
+          ))}
+        </div>
+      </div>
+      {/* Center sticker (div, not cliccabile) */}
+      <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-[1]">
+        <div className="lv-cta-round">
+          DAL FORNO
+          <br />
+          OGNI SERA
+        </div>
+      </div>
+    </section>
+  );
+}
+
+// ─── STORY (yellow block, photo + copy + numbers) ──────────────────
 function Story() {
   return (
-    <section style={{ background: "var(--bk-white)" }} className="relative">
+    <section style={{ background: "var(--bk-yellow)" }} className="relative">
       <div className="max-w-page mx-auto px-5 md:px-12 py-20 md:py-28 grid md:grid-cols-2 gap-12 md:gap-20 items-center">
         <Reveal className="relative">
-          <div className="aspect-[4/5] overflow-hidden relative" style={{ boxShadow: "var(--shadow-product)" }}>
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src={PIZZA_PHOTOS.story} alt="Lievito madre" className="w-full h-full object-cover" />
-            <div className="absolute inset-0" style={{ background: "linear-gradient(180deg, transparent 50%, rgba(0,0,0,0.55) 100%)" }} />
-            <div className="absolute bottom-5 left-5 right-5 text-bk-white font-display uppercase text-[13px] tracking-[0.06em] font-semibold leading-snug">
-              Il nostro lievito madre, vivo dal 2014.
+          <div className="relative w-full max-w-[520px]">
+            {/* Solid green rectangle behind, offset 24px (no shadow) */}
+            <div className="absolute inset-0 translate-x-6 translate-y-6" style={{ background: "var(--bk-green)" }} />
+            <div className="relative aspect-[4/5] overflow-hidden">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src={PIZZA_PHOTOS.story} alt="Lievito madre" className="w-full h-full object-cover" loading="lazy" />
+              <div className="absolute inset-0" style={{ background: "linear-gradient(180deg, transparent 50%, rgba(0,0,0,0.55) 100%)" }} />
+              <div className="absolute bottom-5 left-5 right-5 text-bk-white font-display uppercase text-[13px] tracking-[0.06em] font-semibold leading-snug">
+                Il nostro lievito madre, vivo dal 2014.
+              </div>
             </div>
-          </div>
-          {/* Blue sticker */}
-          <div className="lv-cta-round lv-cta-round--blue absolute" style={{ width: 130, height: 130, right: -20, top: -20, fontSize: 17, transform: "rotate(8deg)" }}>
-            12 ANNI
-            <br />
-            DI FORNO!
+            {/* Blue sticker, rotated 8° */}
+            <div className="absolute -top-5 -right-5 md:-top-7 md:-right-9" style={{ transform: "rotate(8deg)" }}>
+              <div className="lv-cta-round lv-cta-round--blue lv-cta-round--md">
+                12 ANNI
+                <br />
+                DI FORNO!
+              </div>
+            </div>
           </div>
         </Reveal>
 
@@ -293,17 +410,19 @@ function Story() {
             <h2 className="lv-h-l text-bk-green">
               NATI A
               <br />
-              <span className="lv-stroke" style={{ color: "rgb(116, 195, 213)" }}>TROPEA.</span>
+              <span className="lv-stroke">TROPEA.</span>
               <br />
-              CRESCIUTI CON LIEVITO MADRE.
+              CRESCIUTI CON
+              <br />
+              LIEVITO MADRE.
             </h2>
           </Reveal>
           <Reveal>
-            <p className="text-bk-ink text-lg leading-snug mt-7 mb-5 max-w-[520px]">
+            <p className="text-bk-ink text-lg leading-snug mt-7 mb-5 max-w-[520px] font-support">
               Lievita nasce nel 2014 in uno scantinato del centro storico, da due fratelli calabresi e una madre — il
               lievito che ancora oggi profuma le nostre cucine.
             </p>
-            <p className="text-bk-ink text-lg leading-snug mb-8 max-w-[520px]">
+            <p className="text-bk-ink text-lg leading-snug mb-8 max-w-[520px] font-support">
               Una sola pizzeria. Una sola idea: pizza vera, con le materie prime della nostra terra. Cipolla rossa IGP,
               &apos;nduja di Spilinga, bergamotto, caciocavallo silano, alici di Cetara. Tutto a chilometri zero, o quasi.
             </p>
@@ -314,12 +433,12 @@ function Story() {
               {(
                 [
                   ["12", "ANNI DI FORNO"],
-                  ["48H", "DI LIEVITAZIONE"],
+                  [`${SHOP.leavening_hours}H`, "DI LIEVITAZIONE"],
                   ["100%", "INGREDIENTI CALABRESI"],
                 ] as const
               ).map(([k, v]) => (
                 <div key={v}>
-                  <div className="font-display-xl font-bold text-[44px] leading-none text-bk-green">{k}</div>
+                  <div className="font-display font-bold text-[40px] md:text-[56px] leading-none text-bk-green">{k}</div>
                   <div className="font-display uppercase text-[10px] tracking-[0.12em] text-bk-ink mt-2 font-semibold">{v}</div>
                 </div>
               ))}
@@ -331,7 +450,7 @@ function Story() {
   );
 }
 
-// ─── FIND US (blue block, info + pseudo-map) ──────────────────────
+// ─── FIND US (blue block, info + SVG pseudo-map) ───────────────────
 function FindUs() {
   const nav = useNavigate();
   return (
@@ -396,10 +515,10 @@ function FindUs() {
           </Reveal>
         </div>
 
-        {/* Pseudo-map */}
+        {/* Pseudo-map — copiata da design/Main.dc.html */}
         <Reveal>
-          <div className="aspect-[5/4] relative overflow-hidden bg-bk-blueTint border-2 border-bk-green" data-cursor-hover>
-            <svg viewBox="0 0 500 400" preserveAspectRatio="xMidYMid slice" className="absolute inset-0 w-full h-full">
+          <div className="aspect-[5/4] relative overflow-hidden bg-bk-blueTint border-2 border-bk-green">
+            <svg viewBox="0 0 500 400" preserveAspectRatio="xMidYMid slice" className="absolute inset-0 w-full h-full" xmlns="http://www.w3.org/2000/svg">
               <rect width="500" height="400" fill="#CFE8EF" />
               {/* Sea */}
               <path d="M 0 240 Q 100 230 200 250 Q 300 270 400 250 Q 470 240 500 250 L 500 400 L 0 400 Z" fill="#74C3D5" />
