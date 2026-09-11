@@ -86,7 +86,7 @@ export function Header() {
       </div>
 
       {/* Mobile second row */}
-      <div className="md:hidden border-t border-bk-border px-3 py-1.5 flex gap-1 overflow-x-auto bg-bk-white">
+      <div className="md:hidden border-t border-bk-border px-3 py-1 flex gap-1 overflow-x-auto bg-bk-white">
         {([
           ["home", "Home"],
           ["menu", "Menù"],
@@ -97,7 +97,7 @@ export function Header() {
           <button
             key={n}
             onClick={() => nav(n)}
-            className={`shrink-0 px-3 py-1.5 font-display uppercase text-[11px] tracking-[0.1em] font-semibold ${
+            className={`shrink-0 inline-flex items-center min-h-[44px] px-3 font-display uppercase text-[11px] tracking-[0.1em] font-semibold ${
               here(n) ? "bg-bk-green text-bk-yellow" : "text-bk-green"
             }`}
             style={{ borderRadius: 0 }}
