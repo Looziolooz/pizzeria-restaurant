@@ -85,6 +85,7 @@ export interface Shop {
   delivery_min: number;
   pickup_min: number;
   prep_minutes: number;
+  leavening_hours: number;
 }
 
 /** A cart line as persisted (id + qty only). */
