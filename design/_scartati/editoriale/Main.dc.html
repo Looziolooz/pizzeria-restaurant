@@ -1,0 +1,366 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;1,8..60,400&family=Libre+Franklin:wght@500;600&display=swap">
+  <style>
+    * { box-sizing: border-box; }
+    body { margin: 0; background: #2E1A0E; position: relative; }
+    a { color: #C1603A; text-decoration: none; }
+    a:hover { color: #9E4B2A; }
+    body::before { content: ""; position: absolute; inset: 0; pointer-events: none; z-index: 50; opacity: 0.055; background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='240' height='240'><filter id='g'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/></filter><rect width='240' height='240' filter='url(%23g)'/></svg>"); }
+  </style>
+</helmet>
+<div style="width:1440px; background:#F5EDD8; color:#2E1A0E; font-family:'Source Serif 4',Georgia,serif; display:flex; flex-direction:column;">
+
+  <header style="height:88px; display:flex; align-items:center; justify-content:space-between; padding:0 64px; border-bottom:1px solid #D8C4B2; background:#F5EDD8;">
+    <nav style="display:flex; align-items:center; gap:32px; font-family:'Libre Franklin',system-ui,sans-serif; font-size:12px; letter-spacing:0.1em; text-transform:uppercase; font-weight:500;">
+      <a href="#" style="color:#2E1A0E;">Menù &amp; Ordina</a>
+      <a href="#" style="color:#2E1A0E;">Prenota</a>
+      <a href="#" style="color:#2E1A0E;">La storia</a>
+    </nav>
+    <div style="display:flex; flex-direction:column; align-items:center; gap:4px;">
+      <div style="font-family:'Playfair Display',Georgia,serif; font-size:34px; font-weight:500; line-height:1; color:#2E1A0E; letter-spacing:0.01em;">Lievita</div>
+      <div style="font-family:'Libre Franklin',system-ui,sans-serif; font-size:10px; letter-spacing:0.2em; text-transform:uppercase; color:#6B4F3A;">Tropea · dal 2014</div>
+    </div>
+    <div style="display:flex; align-items:center; gap:24px;">
+      <a href="#" style="color:#2E1A0E; font-family:'Libre Franklin',system-ui,sans-serif; font-size:12px; letter-spacing:0.1em; text-transform:uppercase; font-weight:500;">Contatti</a>
+      <div style="display:flex; align-items:center; gap:8px; font-family:'Libre Franklin',system-ui,sans-serif; font-size:11px; letter-spacing:0.08em; text-transform:uppercase; color:#6B4F3A;">
+        <span style="display:inline-block; width:8px; height:8px; border-radius:50%; background:#7A8C6B;"></span>
+        <span>Aperto fino alle 23:30</span>
+      </div>
+      <a href="#" style="display:inline-flex; align-items:center; gap:10px; height:44px; padding:0 22px; background:#C1603A; color:#F5EDD8; border-radius:4px; font-family:'Libre Franklin',system-ui,sans-serif; font-size:12px; letter-spacing:0.08em; text-transform:uppercase; font-weight:600;">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8h12l1 13H5L6 8z"></path><path d="M9 8V6a3 3 0 0 1 6 0v2"></path></svg>
+        <span>Ordina</span>
+      </a>
+    </div>
+  </header>
+
+  <section style="position:relative; height:812px; overflow:hidden; background:#2E1A0E;">
+    <img src="hero.jpg" alt="Pizza appena sfornata" style="position:absolute; top:0; left:0; width:100%; height:100%; object-fit:cover; display:block;">
+    <div style="position:absolute; top:0; left:0; width:100%; height:100%; background:linear-gradient(180deg, rgba(46,26,14,0.10) 0%, rgba(46,26,14,0.18) 40%, rgba(46,26,14,0.84) 100%);"></div>
+    <div style="position:absolute; left:64px; right:64px; bottom:72px; display:flex; justify-content:space-between; align-items:flex-end; gap:48px;">
+      <div style="display:flex; flex-direction:column; gap:28px; max-width:860px;">
+        <div style="display:flex; align-items:center; gap:12px; font-family:'Libre Franklin',system-ui,sans-serif; font-size:12px; letter-spacing:0.14em; text-transform:uppercase; font-weight:500; color:#E6C588;">
+          <span style="display:inline-block; width:28px; height:1px; background:#E6C588;"></span>
+          <span>Pizzeria a lievito madre · Tropea, Calabria</span>
+        </div>
+        <h1 style="font-family:'Playfair Display',Georgia,serif; font-size:112px; line-height:0.98; font-weight:400; color:#F5EDD8; margin:0; letter-spacing:-0.012em;">Pizza vera.<br><em style="font-style:italic; color:#E6C588;">A Tropea.</em></h1>
+        <p style="font-family:'Source Serif 4',Georgia,serif; font-size:20px; line-height:1.55; color:rgba(245,237,216,0.86); max-width:560px; margin:0;">Lievito madre vivo dal 2014, farine bio macinate a pietra e la Calabria sopra: 'nduja di Spilinga, cipolla rossa di Tropea, bergamotto di Reggio. Niente scorciatoie.</p>
+        <div style="display:flex; gap:16px;">
+          <a href="#" style="display:inline-flex; align-items:center; gap:10px; height:52px; padding:0 28px; background:#C1603A; color:#F5EDD8; border-radius:4px; font-family:'Libre Franklin',system-ui,sans-serif; font-size:13px; letter-spacing:0.06em; text-transform:uppercase; font-weight:600;">Ordina online</a>
+          <a href="#" style="display:inline-flex; align-items:center; gap:10px; height:52px; padding:0 28px; background:transparent; color:#F5EDD8; border:1px solid rgba(245,237,216,0.7); border-radius:4px; font-family:'Libre Franklin',system-ui,sans-serif; font-size:13px; letter-spacing:0.06em; text-transform:uppercase; font-weight:600;">Prenota un tavolo</a>
+        </div>
+      </div>
+      <div style="display:flex; flex-direction:column; align-items:flex-end; gap:10px; font-family:'Libre Franklin',system-ui,sans-serif; font-size:12px; letter-spacing:0.1em; text-transform:uppercase; color:rgba(245,237,216,0.85); white-space:nowrap;">
+        <div>Pronta in 25 min</div>
+        <div>Delivery entro 8 km</div>
+        <div>Asporto da €12</div>
+      </div>
+    </div>
+  </section>
+
+  <section style="background:#EDE0C4; border-bottom:1px solid #D8C4B2; padding:0 64px; height:72px; display:grid; grid-template-columns:repeat(3, minmax(0, 1fr)); align-items:center; gap:0;">
+    <div style="display:flex; align-items:baseline; gap:14px; border-right:1px solid #D8C4B2; padding-right:32px;">
+      <span style="font-family:'Libre Franklin',system-ui,sans-serif; font-size:11px; letter-spacing:0.12em; text-transform:uppercase; color:#6B4F3A;">Oggi</span>
+      <span style="font-family:'Source Serif 4',Georgia,serif; font-size:17px; color:#2E1A0E;">18:30 — 23:30</span>
+    </div>
+    <div style="display:flex; align-items:baseline; gap:14px; border-right:1px solid #D8C4B2; padding:0 32px;">
+      <span style="font-family:'Libre Franklin',system-ui,sans-serif; font-size:11px; letter-spacing:0.12em; text-transform:uppercase; color:#6B4F3A;">Dove</span>
+      <span style="font-family:'Source Serif 4',Georgia,serif; font-size:17px; color:#2E1A0E;">Largo Galluppi 5 · centro storico</span>
+    </div>
+    <div style="display:flex; align-items:baseline; gap:14px; padding-left:32px;">
+      <span style="font-family:'Libre Franklin',system-ui,sans-serif; font-size:11px; letter-spacing:0.12em; text-transform:uppercase; color:#6B4F3A;">Telefono</span>
+      <span style="font-family:'Source Serif 4',Georgia,serif; font-size:17px; color:#2E1A0E;">0963 666842</span>
+    </div>
+  </section>
+
+  <section style="padding:112px 64px; display:grid; grid-template-columns:1fr 1.3fr; gap:96px; align-items:start;">
+    <div style="display:flex; flex-direction:column; gap:22px;">
+      <div style="display:flex; align-items:center; gap:12px; font-family:'Libre Franklin',system-ui,sans-serif; font-size:12px; letter-spacing:0.14em; text-transform:uppercase; font-weight:500; color:#C1603A;">
+        <span style="display:inline-block; width:28px; height:1px; background:#C1603A;"></span>
+        <span>Come lavoriamo</span>
+      </div>
+      <h2 style="font-family:'Playfair Display',Georgia,serif; font-size:60px; line-height:1.05; font-weight:400; color:#2E1A0E; margin:0; letter-spacing:-0.008em;">Quattro cose<br><em style="font-style:italic;">che non cambiano.</em></h2>
+      <p style="font-family:'Source Serif 4',Georgia,serif; font-size:18px; line-height:1.7; color:#6B4F3A; margin:0; max-width:420px;">Una sola pizzeria, ventotto coperti, una sola idea: la pizza vera, con quello che cresce qui intorno.</p>
+    </div>
+    <div style="display:grid; grid-template-columns:repeat(2, minmax(0, 1fr)); gap:56px 48px; padding-top:12px;">
+      <div style="display:flex; gap:22px; align-items:flex-start;">
+        <div style="font-family:'Playfair Display',Georgia,serif; font-size:64px; line-height:0.9; color:#C1603A; width:72px; flex-shrink:0;">01</div>
+        <div style="display:flex; flex-direction:column; gap:10px;">
+          <h3 style="font-family:'Playfair Display',Georgia,serif; font-size:26px; font-weight:500; line-height:1.2; margin:0; color:#2E1A0E;">Farine bio</h3>
+          <p style="font-family:'Source Serif 4',Georgia,serif; font-size:17px; line-height:1.65; color:#6B4F3A; margin:0;">Macinate a pietra, da grani italiani selezionati.</p>
+        </div>
+      </div>
+      <div style="display:flex; gap:22px; align-items:flex-start;">
+        <div style="font-family:'Playfair Display',Georgia,serif; font-size:64px; line-height:0.9; color:#C1603A; width:72px; flex-shrink:0;">02</div>
+        <div style="display:flex; flex-direction:column; gap:10px;">
+          <h3 style="font-family:'Playfair Display',Georgia,serif; font-size:26px; font-weight:500; line-height:1.2; margin:0; color:#2E1A0E;">Lievito madre</h3>
+          <p style="font-family:'Source Serif 4',Georgia,serif; font-size:17px; line-height:1.65; color:#6B4F3A; margin:0;">48 ore di lievitazione naturale. Digeribile, leggera.</p>
+        </div>
+      </div>
+      <div style="display:flex; gap:22px; align-items:flex-start;">
+        <div style="font-family:'Playfair Display',Georgia,serif; font-size:64px; line-height:0.9; color:#C1603A; width:72px; flex-shrink:0;">03</div>
+        <div style="display:flex; flex-direction:column; gap:10px;">
+          <h3 style="font-family:'Playfair Display',Georgia,serif; font-size:26px; font-weight:500; line-height:1.2; margin:0; color:#2E1A0E;">Topping calabrese</h3>
+          <p style="font-family:'Source Serif 4',Georgia,serif; font-size:17px; line-height:1.65; color:#6B4F3A; margin:0;">Filiere corte, biologico, di stagione.</p>
+        </div>
+      </div>
+      <div style="display:flex; gap:22px; align-items:flex-start;">
+        <div style="font-family:'Playfair Display',Georgia,serif; font-size:64px; line-height:0.9; color:#C1603A; width:72px; flex-shrink:0;">04</div>
+        <div style="display:flex; flex-direction:column; gap:10px;">
+          <h3 style="font-family:'Playfair Display',Georgia,serif; font-size:26px; font-weight:500; line-height:1.2; margin:0; color:#2E1A0E;">Tagliata a tavola</h3>
+          <p style="font-family:'Source Serif 4',Georgia,serif; font-size:17px; line-height:1.65; color:#6B4F3A; margin:0;">Arriva già a spicchi. Si assaggia, si scambia.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding:0 64px 112px; display:flex; flex-direction:column; gap:0;">
+    <div style="display:flex; justify-content:space-between; align-items:flex-end; gap:48px; padding-bottom:40px;">
+      <div style="display:flex; flex-direction:column; gap:20px;">
+        <div style="display:flex; align-items:center; gap:12px; font-family:'Libre Franklin',system-ui,sans-serif; font-size:12px; letter-spacing:0.14em; text-transform:uppercase; font-weight:500; color:#C1603A;">
+          <span style="display:inline-block; width:28px; height:1px; background:#C1603A;"></span>
+          <span>Stasera al forno</span>
+        </div>
+        <h2 style="font-family:'Playfair Display',Georgia,serif; font-size:60px; line-height:1.05; font-weight:400; color:#2E1A0E; margin:0; letter-spacing:-0.008em;">Le cinque<br><em style="font-style:italic;">di stasera.</em></h2>
+      </div>
+      <a href="#" style="display:inline-flex; align-items:center; gap:10px; color:#2E1A0E; font-family:'Libre Franklin',system-ui,sans-serif; font-size:12px; letter-spacing:0.12em; text-transform:uppercase; font-weight:600; border-bottom:1px solid #2E1A0E; padding-bottom:6px;">
+        <span>Tutto il menù</span>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"></path></svg>
+      </a>
+    </div>
+
+    <article style="display:grid; grid-template-columns:72px 320px 1fr 180px; gap:40px; align-items:center; padding:36px 0; border-top:1px solid #D8C4B2;">
+      <div style="font-family:'Playfair Display',Georgia,serif; font-style:italic; font-size:44px; line-height:1; color:#C1603A;">I</div>
+      <div style="height:240px; border-radius:4px; overflow:hidden; background:#EDE0C4; box-shadow:0 4px 24px rgba(46,26,14,0.10);"><img src="margherita.jpg" alt="Margherita" style="width:100%; height:100%; object-fit:cover; display:block;"></div>
+      <div style="display:flex; flex-direction:column; gap:12px;">
+        <div style="font-family:'Libre Franklin',system-ui,sans-serif; font-size:11px; letter-spacing:0.14em; text-transform:uppercase; color:#7A8C6B; font-weight:500;">Le classiche</div>
+        <h3 style="font-family:'Playfair Display',Georgia,serif; font-style:italic; font-size:40px; font-weight:400; line-height:1.05; margin:0; color:#2E1A0E;">Margherita</h3>
+        <p style="font-family:'Source Serif 4',Georgia,serif; font-size:17px; line-height:1.6; color:#2E1A0E; margin:0; max-width:520px;">Il punto di partenza. Pomodoro San Marzano DOP, fior di latte, basilico fresco. Senza tempo.</p>
+        <div style="font-family:'Libre Franklin',system-ui,sans-serif; font-size:12px; letter-spacing:0.08em; text-transform:uppercase; color:#6B4F3A;">Pomodoro DOP · Fior di latte · Basilico · Olio EVO</div>
+      </div>
+      <div style="display:flex; flex-direction:column; align-items:flex-end; gap:14px;">
+        <div style="font-family:'Playfair Display',Georgia,serif; font-size:32px; line-height:1; color:#C1603A;">€8,50</div>
+        <a href="#" style="display:inline-flex; align-items:center; gap:8px; height:44px; padding:0 20px; background:transparent; color:#2E1A0E; border:1px solid #2E1A0E; border-radius:4px; font-family:'Libre Franklin',system-ui,sans-serif; font-size:12px; letter-spacing:0.08em; text-transform:uppercase; font-weight:600;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M12 5v14M5 12h14"></path></svg><span>Aggiungi</span></a>
+      </div>
+    </article>
+
+    <article style="display:grid; grid-template-columns:72px 320px 1fr 180px; gap:40px; align-items:center; padding:36px 0; border-top:1px solid #D8C4B2;">
+      <div style="font-family:'Playfair Display',Georgia,serif; font-style:italic; font-size:44px; line-height:1; color:#C1603A;">II</div>
+      <div style="height:240px; border-radius:4px; overflow:hidden; background:#EDE0C4; box-shadow:0 4px 24px rgba(46,26,14,0.10);"><img src="diavola.jpg" alt="Diavola" style="width:100%; height:100%; object-fit:cover; display:block;"></div>
+      <div style="display:flex; flex-direction:column; gap:12px;">
+        <div style="font-family:'Libre Franklin',system-ui,sans-serif; font-size:11px; letter-spacing:0.14em; text-transform:uppercase; color:#7A8C6B; font-weight:500;">Per i piccanti</div>
+        <h3 style="font-family:'Playfair Display',Georgia,serif; font-style:italic; font-size:40px; font-weight:400; line-height:1.05; margin:0; color:#2E1A0E;">Diavola</h3>
+        <p style="font-family:'Source Serif 4',Georgia,serif; font-size:17px; line-height:1.6; color:#2E1A0E; margin:0; max-width:520px;">Salame piccante calabrese e olio EVO. Per chi non ha paura della Calabria.</p>
+        <div style="font-family:'Libre Franklin',system-ui,sans-serif; font-size:12px; letter-spacing:0.08em; text-transform:uppercase; color:#6B4F3A;">Salame piccante · Fior di latte · Pomodoro · Olio EVO</div>
+      </div>
+      <div style="display:flex; flex-direction:column; align-items:flex-end; gap:14px;">
+        <div style="font-family:'Playfair Display',Georgia,serif; font-size:32px; line-height:1; color:#C1603A;">€10,50</div>
+        <a href="#" style="display:inline-flex; align-items:center; gap:8px; height:44px; padding:0 20px; background:transparent; color:#2E1A0E; border:1px solid #2E1A0E; border-radius:4px; font-family:'Libre Franklin',system-ui,sans-serif; font-size:12px; letter-spacing:0.08em; text-transform:uppercase; font-weight:600;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M12 5v14M5 12h14"></path></svg><span>Aggiungi</span></a>
+      </div>
+    </article>
+
+    <article style="display:grid; grid-template-columns:72px 320px 1fr 180px; gap:40px; align-items:center; padding:36px 0; border-top:1px solid #D8C4B2;">
+      <div style="font-family:'Playfair Display',Georgia,serif; font-style:italic; font-size:44px; line-height:1; color:#C1603A;">III</div>
+      <div style="height:240px; border-radius:4px; overflow:hidden; background:#EDE0C4; box-shadow:0 4px 24px rgba(46,26,14,0.10);"><img src="tropea.jpg" alt="Tropea" style="width:100%; height:100%; object-fit:cover; display:block;"></div>
+      <div style="display:flex; flex-direction:column; gap:12px;">
+        <div style="font-family:'Libre Franklin',system-ui,sans-serif; font-size:11px; letter-spacing:0.14em; text-transform:uppercase; color:#7A8C6B; font-weight:500;">I sapori di casa</div>
+        <h3 style="font-family:'Playfair Display',Georgia,serif; font-style:italic; font-size:40px; font-weight:400; line-height:1.05; margin:0; color:#2E1A0E;">Tropea</h3>
+        <p style="font-family:'Source Serif 4',Georgia,serif; font-size:17px; line-height:1.6; color:#2E1A0E; margin:0; max-width:520px;">Bufala, cipolla rossa di Tropea IGP, alici di Cetara, capperi. Tutto a chilometri da qui.</p>
+        <div style="font-family:'Libre Franklin',system-ui,sans-serif; font-size:12px; letter-spacing:0.08em; text-transform:uppercase; color:#6B4F3A;">Pomodoro · Bufala · Cipolla IGP · Alici di Cetara · Capperi</div>
+      </div>
+      <div style="display:flex; flex-direction:column; align-items:flex-end; gap:14px;">
+        <div style="font-family:'Playfair Display',Georgia,serif; font-size:32px; line-height:1; color:#C1603A;">€13,00</div>
+        <a href="#" style="display:inline-flex; align-items:center; gap:8px; height:44px; padding:0 20px; background:transparent; color:#2E1A0E; border:1px solid #2E1A0E; border-radius:4px; font-family:'Libre Franklin',system-ui,sans-serif; font-size:12px; letter-spacing:0.08em; text-transform:uppercase; font-weight:600;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M12 5v14M5 12h14"></path></svg><span>Aggiungi</span></a>
+      </div>
+    </article>
+
+    <article style="display:grid; grid-template-columns:72px 320px 1fr 180px; gap:40px; align-items:center; padding:36px 0; border-top:1px solid #D8C4B2;">
+      <div style="font-family:'Playfair Display',Georgia,serif; font-style:italic; font-size:44px; line-height:1; color:#C1603A;">IV</div>
+      <div style="height:240px; border-radius:4px; overflow:hidden; background:#EDE0C4; box-shadow:0 4px 24px rgba(46,26,14,0.10);"><img src="bergamotto.jpg" alt="Bergamotto" style="width:100%; height:100%; object-fit:cover; display:block;"></div>
+      <div style="display:flex; flex-direction:column; gap:12px;">
+        <div style="font-family:'Libre Franklin',system-ui,sans-serif; font-size:11px; letter-spacing:0.14em; text-transform:uppercase; color:#7A8C6B; font-weight:500;">Il bianco profumato</div>
+        <h3 style="font-family:'Playfair Display',Georgia,serif; font-style:italic; font-size:40px; font-weight:400; line-height:1.05; margin:0; color:#2E1A0E;">Bergamotto</h3>
+        <p style="font-family:'Source Serif 4',Georgia,serif; font-size:17px; line-height:1.6; color:#2E1A0E; margin:0; max-width:520px;">Stracciatella, scorza di bergamotto di Reggio, pistacchio. Sa di costa jonica.</p>
+        <div style="font-family:'Libre Franklin',system-ui,sans-serif; font-size:12px; letter-spacing:0.08em; text-transform:uppercase; color:#6B4F3A;">Stracciatella · Bergamotto · Pistacchio · Pepe rosa</div>
+      </div>
+      <div style="display:flex; flex-direction:column; align-items:flex-end; gap:14px;">
+        <div style="font-family:'Playfair Display',Georgia,serif; font-size:32px; line-height:1; color:#C1603A;">€13,50</div>
+        <a href="#" style="display:inline-flex; align-items:center; gap:8px; height:44px; padding:0 20px; background:transparent; color:#2E1A0E; border:1px solid #2E1A0E; border-radius:4px; font-family:'Libre Franklin',system-ui,sans-serif; font-size:12px; letter-spacing:0.08em; text-transform:uppercase; font-weight:600;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M12 5v14M5 12h14"></path></svg><span>Aggiungi</span></a>
+      </div>
+    </article>
+
+    <article style="display:grid; grid-template-columns:72px 320px 1fr 180px; gap:40px; align-items:center; padding:36px 0; border-top:1px solid #D8C4B2; border-bottom:1px solid #D8C4B2;">
+      <div style="font-family:'Playfair Display',Georgia,serif; font-style:italic; font-size:44px; line-height:1; color:#C1603A;">V</div>
+      <div style="height:240px; border-radius:4px; overflow:hidden; background:#EDE0C4; box-shadow:0 4px 24px rgba(46,26,14,0.10);"><img src="nduja.jpg" alt="Nduja di Spilinga" style="width:100%; height:100%; object-fit:cover; display:block;"></div>
+      <div style="display:flex; flex-direction:column; gap:12px;">
+        <div style="font-family:'Libre Franklin',system-ui,sans-serif; font-size:11px; letter-spacing:0.14em; text-transform:uppercase; color:#7A8C6B; font-weight:500;">Piccante e affumicato</div>
+        <h3 style="font-family:'Playfair Display',Georgia,serif; font-style:italic; font-size:40px; font-weight:400; line-height:1.05; margin:0; color:#2E1A0E;">'Nduja di Spilinga</h3>
+        <p style="font-family:'Source Serif 4',Georgia,serif; font-size:17px; line-height:1.6; color:#2E1A0E; margin:0; max-width:520px;">'Nduja di Spilinga IGP, cipolla rossa, miele di castagno. Dolce e fuoco insieme.</p>
+        <div style="font-family:'Libre Franklin',system-ui,sans-serif; font-size:12px; letter-spacing:0.08em; text-transform:uppercase; color:#6B4F3A;">Pomodoro · Fior di latte · 'Nduja IGP · Cipolla di Tropea · Miele di castagno</div>
+      </div>
+      <div style="display:flex; flex-direction:column; align-items:flex-end; gap:14px;">
+        <div style="font-family:'Playfair Display',Georgia,serif; font-size:32px; line-height:1; color:#C1603A;">€12,50</div>
+        <a href="#" style="display:inline-flex; align-items:center; gap:8px; height:44px; padding:0 20px; background:transparent; color:#2E1A0E; border:1px solid #2E1A0E; border-radius:4px; font-family:'Libre Franklin',system-ui,sans-serif; font-size:12px; letter-spacing:0.08em; text-transform:uppercase; font-weight:600;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M12 5v14M5 12h14"></path></svg><span>Aggiungi</span></a>
+      </div>
+    </article>
+  </section>
+
+  <section style="background:#EDE0C4; padding:112px 64px; display:grid; grid-template-columns:520px 1fr; gap:96px; align-items:center;">
+    <div style="display:flex; flex-direction:column; gap:16px;">
+      <div style="height:640px; border-radius:4px; overflow:hidden; background:#D8C4B2; box-shadow:0 12px 40px rgba(46,26,14,0.16);"><img src="lievito.jpg" alt="Il lievito madre" style="width:100%; height:100%; object-fit:cover; display:block;"></div>
+      <div style="font-family:'Libre Franklin',system-ui,sans-serif; font-size:11px; letter-spacing:0.12em; text-transform:uppercase; color:#6B4F3A;">Il nostro lievito madre, vivo dal 2014.</div>
+    </div>
+    <div style="display:flex; flex-direction:column; gap:26px;">
+      <div style="display:flex; align-items:center; gap:12px; font-family:'Libre Franklin',system-ui,sans-serif; font-size:12px; letter-spacing:0.14em; text-transform:uppercase; font-weight:500; color:#C1603A;">
+        <span style="display:inline-block; width:28px; height:1px; background:#C1603A;"></span>
+        <span>La nostra storia</span>
+      </div>
+      <h2 style="font-family:'Playfair Display',Georgia,serif; font-size:60px; line-height:1.05; font-weight:400; color:#2E1A0E; margin:0; letter-spacing:-0.008em;">Nati a Tropea,<br>cresciuti con<br><em style="font-style:italic;">lievito madre.</em></h2>
+      <p style="font-family:'Source Serif 4',Georgia,serif; font-size:18px; line-height:1.7; color:#2E1A0E; margin:0; max-width:560px;">Lievita nasce nel 2014 in uno scantinato del centro storico, da due fratelli calabresi e una madre: il lievito che ancora oggi profuma le nostre cucine.</p>
+      <p style="font-family:'Source Serif 4',Georgia,serif; font-size:18px; line-height:1.7; color:#2E1A0E; margin:0; max-width:560px;">Una sola pizzeria. Una sola idea: pizza vera, con le materie prime della nostra terra. Cipolla rossa IGP, 'nduja di Spilinga, bergamotto, caciocavallo silano, alici di Cetara. Tutto a chilometri zero, o quasi.</p>
+      <div style="display:grid; grid-template-columns:repeat(3, minmax(0, 1fr)); gap:40px; max-width:560px; border-top:1px solid rgba(46,26,14,0.25); padding-top:28px; margin-top:8px;">
+        <div style="display:flex; flex-direction:column; gap:8px;">
+          <div style="font-family:'Playfair Display',Georgia,serif; font-size:48px; line-height:1; color:#C1603A;">12</div>
+          <div style="font-family:'Libre Franklin',system-ui,sans-serif; font-size:11px; letter-spacing:0.12em; text-transform:uppercase; color:#6B4F3A;">Anni di forno</div>
+        </div>
+        <div style="display:flex; flex-direction:column; gap:8px;">
+          <div style="font-family:'Playfair Display',Georgia,serif; font-size:48px; line-height:1; color:#C1603A;">48 h</div>
+          <div style="font-family:'Libre Franklin',system-ui,sans-serif; font-size:11px; letter-spacing:0.12em; text-transform:uppercase; color:#6B4F3A;">Di lievitazione</div>
+        </div>
+        <div style="display:flex; flex-direction:column; gap:8px;">
+          <div style="font-family:'Playfair Display',Georgia,serif; font-size:48px; line-height:1; color:#C1603A;">100%</div>
+          <div style="font-family:'Libre Franklin',system-ui,sans-serif; font-size:11px; letter-spacing:0.12em; text-transform:uppercase; color:#6B4F3A;">Ingredienti calabresi</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section style="background:#C1603A; color:#F5EDD8; padding:56px 64px; display:flex; align-items:center; justify-content:space-between; gap:48px;">
+    <div style="display:flex; flex-direction:column; gap:12px;">
+      <div style="font-family:'Libre Franklin',system-ui,sans-serif; font-size:12px; letter-spacing:0.14em; text-transform:uppercase; color:rgba(245,237,216,0.75);">Dal lunedì al venerdì · a pranzo</div>
+      <h2 style="font-family:'Playfair Display',Georgia,serif; font-style:italic; font-size:44px; line-height:1.1; font-weight:400; margin:0; color:#F5EDD8;">Pranzo a €12: pizza, bibita e caffè.</h2>
+    </div>
+    <a href="#" style="display:inline-flex; align-items:center; gap:10px; height:52px; padding:0 28px; background:transparent; color:#F5EDD8; border:1px solid rgba(245,237,216,0.7); border-radius:4px; font-family:'Libre Franklin',system-ui,sans-serif; font-size:13px; letter-spacing:0.06em; text-transform:uppercase; font-weight:600; white-space:nowrap;">Vedi il menù del pranzo</a>
+  </section>
+
+  <section style="padding:112px 64px; display:grid; grid-template-columns:1fr 1.15fr; gap:96px; align-items:start;">
+    <div style="display:flex; flex-direction:column; gap:28px;">
+      <div style="display:flex; align-items:center; gap:12px; font-family:'Libre Franklin',system-ui,sans-serif; font-size:12px; letter-spacing:0.14em; text-transform:uppercase; font-weight:500; color:#C1603A;">
+        <span style="display:inline-block; width:28px; height:1px; background:#C1603A;"></span>
+        <span>Trovaci qui</span>
+      </div>
+      <h2 style="font-family:'Playfair Display',Georgia,serif; font-size:60px; line-height:1.05; font-weight:400; color:#2E1A0E; margin:0; letter-spacing:-0.008em;">Largo Galluppi 5,<br><em style="font-style:italic;">centro storico.</em></h2>
+      <div style="display:flex; flex-direction:column; gap:22px; max-width:440px; padding-top:8px;">
+        <div style="display:flex; gap:16px; align-items:flex-start;">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#C1603A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0; margin-top:3px;"><path d="M12 21s-6-5.2-6-11a6 6 0 0 1 12 0c0 5.8-6 11-6 11z"></path><circle cx="12" cy="10" r="2.5"></circle></svg>
+          <div style="display:flex; flex-direction:column; gap:4px;">
+            <div style="font-family:'Libre Franklin',system-ui,sans-serif; font-size:11px; letter-spacing:0.12em; text-transform:uppercase; color:#6B4F3A;">Indirizzo</div>
+            <div style="font-family:'Source Serif 4',Georgia,serif; font-size:18px; color:#2E1A0E;">Largo Galluppi, 5 · 89861 Tropea (VV)</div>
+          </div>
+        </div>
+        <div style="display:flex; gap:16px; align-items:flex-start;">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#C1603A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0; margin-top:3px;"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"></path></svg>
+          <div style="display:flex; flex-direction:column; gap:4px;">
+            <div style="font-family:'Libre Franklin',system-ui,sans-serif; font-size:11px; letter-spacing:0.12em; text-transform:uppercase; color:#6B4F3A;">Telefono</div>
+            <div style="font-family:'Source Serif 4',Georgia,serif; font-size:18px; color:#2E1A0E;">0963 666842</div>
+          </div>
+        </div>
+        <div style="display:flex; gap:16px; align-items:flex-start;">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#C1603A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0; margin-top:3px;"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"></path></svg>
+          <div style="display:flex; flex-direction:column; gap:4px;">
+            <div style="font-family:'Libre Franklin',system-ui,sans-serif; font-size:11px; letter-spacing:0.12em; text-transform:uppercase; color:#6B4F3A;">Orari</div>
+            <div style="display:grid; grid-template-columns:auto 1fr; gap:6px 18px; font-family:'Source Serif 4',Georgia,serif; font-size:17px; color:#2E1A0E;">
+              <span style="color:#6B4F3A;">Lun — Gio</span><span>18:30 — 23:30</span>
+              <span style="color:#6B4F3A;">Ven — Sab</span><span>12:30 — 15:00 · 18:30 — 00:00</span>
+              <span style="color:#6B4F3A;">Domenica</span><span>12:30 — 15:00 · 18:30 — 23:30</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div style="display:flex; gap:16px; padding-top:8px;">
+        <a href="#" style="display:inline-flex; align-items:center; gap:10px; height:52px; padding:0 28px; background:#C1603A; color:#F5EDD8; border-radius:4px; font-family:'Libre Franklin',system-ui,sans-serif; font-size:13px; letter-spacing:0.06em; text-transform:uppercase; font-weight:600;">Prenota un tavolo</a>
+        <a href="#" style="display:inline-flex; align-items:center; gap:10px; height:52px; padding:0 28px; background:transparent; color:#2E1A0E; border:1px solid #2E1A0E; border-radius:4px; font-family:'Libre Franklin',system-ui,sans-serif; font-size:13px; letter-spacing:0.06em; text-transform:uppercase; font-weight:600;">Ordina</a>
+      </div>
+    </div>
+    <div style="height:520px; border-radius:4px; overflow:hidden; border:1px solid #D8C4B2; background:#EDE0C4;">
+      <svg viewBox="0 0 700 520" width="100%" height="100%" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+        <rect width="700" height="520" fill="#EDE0C4"></rect>
+        <path d="M0 330 Q130 312 260 334 T520 328 T700 334 L700 520 L0 520 Z" fill="#E3D3B3"></path>
+        <path d="M0 330 Q130 312 260 334 T520 328 T700 334" fill="none" stroke="#7A8C6B" stroke-width="1.5"></path>
+        <g fill="none" stroke="#7A8C6B" stroke-width="1" opacity="0.45" stroke-dasharray="6 10">
+          <path d="M0 380 Q130 366 260 384 T520 378 T700 384"></path>
+          <path d="M0 430 Q130 416 260 434 T520 428 T700 434"></path>
+          <path d="M0 480 Q130 466 260 484 T520 478 T700 484"></path>
+        </g>
+        <g fill="none" stroke="#C9B597" stroke-width="1.5">
+          <path d="M70 60 Q210 90 280 170 Q350 250 460 290"></path>
+          <path d="M90 250 L260 250 L260 330"></path>
+          <path d="M330 60 L330 240 L470 240"></path>
+          <path d="M160 0 L160 330"></path>
+          <path d="M0 170 L700 170"></path>
+          <path d="M520 0 L520 320"></path>
+        </g>
+        <text x="60" y="52" font-family="Libre Franklin, system-ui, sans-serif" font-size="11" letter-spacing="2" fill="#6B4F3A">CENTRO STORICO</text>
+        <text x="470" y="392" font-family="Libre Franklin, system-ui, sans-serif" font-size="11" letter-spacing="2" fill="#6B4F3A">MARINA DELL'ISOLA</text>
+        <text x="110" y="470" font-family="Libre Franklin, system-ui, sans-serif" font-size="11" letter-spacing="2" fill="#6B4F3A">MAR TIRRENO</text>
+        <g transform="translate(300 205)">
+          <circle r="38" fill="#C1603A" opacity="0.16"></circle>
+          <circle r="18" fill="#C1603A"></circle>
+          <circle r="6" fill="#F5EDD8"></circle>
+          <text y="-52" text-anchor="middle" font-family="Playfair Display, Georgia, serif" font-style="italic" font-size="20" fill="#2E1A0E">Lievita</text>
+        </g>
+      </svg>
+    </div>
+  </section>
+
+  <footer style="background:#2E1A0E; color:#F5EDD8; padding:80px 64px 32px; display:flex; flex-direction:column; gap:56px;">
+    <div style="display:grid; grid-template-columns:1.4fr 1fr 1fr 1fr; gap:40px;">
+      <div style="display:flex; flex-direction:column; gap:18px;">
+        <div style="font-family:'Playfair Display',Georgia,serif; font-size:40px; font-weight:500; line-height:1; color:#F5EDD8;">Lievita</div>
+        <p style="font-family:'Source Serif 4',Georgia,serif; font-size:16px; line-height:1.6; color:rgba(245,237,216,0.8); margin:0; max-width:320px;">Pizza calabrese a lievito madre. A due passi dal mare di Tropea.</p>
+        <div style="font-family:'Libre Franklin',system-ui,sans-serif; font-size:12px; line-height:1.8; letter-spacing:0.02em; color:rgba(245,237,216,0.55);">Largo Galluppi, 5 · 89861 Tropea (VV)<br>0963 666842 · ciao@lievita.it<br>P.IVA 03088161202</div>
+        <div style="display:flex; gap:10px; padding-top:4px;">
+          <a href="#" style="display:inline-grid; place-items:center; width:40px; height:40px; border-radius:50%; border:1px solid rgba(245,237,216,0.3); color:#F5EDD8; font-family:'Libre Franklin',system-ui,sans-serif; font-size:11px; letter-spacing:0.06em; font-weight:600;">IG</a>
+          <a href="#" style="display:inline-grid; place-items:center; width:40px; height:40px; border-radius:50%; border:1px solid rgba(245,237,216,0.3); color:#F5EDD8; font-family:'Libre Franklin',system-ui,sans-serif; font-size:11px; letter-spacing:0.06em; font-weight:600;">FB</a>
+          <a href="#" style="display:inline-grid; place-items:center; width:40px; height:40px; border-radius:50%; border:1px solid rgba(245,237,216,0.3); color:#F5EDD8; font-family:'Libre Franklin',system-ui,sans-serif; font-size:11px; letter-spacing:0.06em; font-weight:600;">TT</a>
+        </div>
+      </div>
+      <div style="display:flex; flex-direction:column; gap:14px;">
+        <div style="font-family:'Libre Franklin',system-ui,sans-serif; font-size:11px; letter-spacing:0.14em; text-transform:uppercase; color:#D4973A; font-weight:600;">Cosa facciamo</div>
+        <a href="#" style="color:rgba(245,237,216,0.85); font-family:'Source Serif 4',Georgia,serif; font-size:16px;">Menù &amp; Ordina</a>
+        <a href="#" style="color:rgba(245,237,216,0.85); font-family:'Source Serif 4',Georgia,serif; font-size:16px;">Prenota un tavolo</a>
+        <a href="#" style="color:rgba(245,237,216,0.85); font-family:'Source Serif 4',Georgia,serif; font-size:16px;">Eventi privati</a>
+        <a href="#" style="color:rgba(245,237,216,0.85); font-family:'Source Serif 4',Georgia,serif; font-size:16px;">Lavora con noi</a>
+      </div>
+      <div style="display:flex; flex-direction:column; gap:14px;">
+        <div style="font-family:'Libre Franklin',system-ui,sans-serif; font-size:11px; letter-spacing:0.14em; text-transform:uppercase; color:#D4973A; font-weight:600;">La pizzeria</div>
+        <a href="#" style="color:rgba(245,237,216,0.85); font-family:'Source Serif 4',Georgia,serif; font-size:16px;">La nostra storia</a>
+        <a href="#" style="color:rgba(245,237,216,0.85); font-family:'Source Serif 4',Georgia,serif; font-size:16px;">Lievito madre</a>
+        <a href="#" style="color:rgba(245,237,216,0.85); font-family:'Source Serif 4',Georgia,serif; font-size:16px;">Contatti</a>
+        <a href="#" style="color:rgba(245,237,216,0.85); font-family:'Source Serif 4',Georgia,serif; font-size:16px;">FAQ</a>
+      </div>
+      <div style="display:flex; flex-direction:column; gap:14px;">
+        <div style="font-family:'Libre Franklin',system-ui,sans-serif; font-size:11px; letter-spacing:0.14em; text-transform:uppercase; color:#D4973A; font-weight:600;">Legale</div>
+        <a href="#" style="color:rgba(245,237,216,0.85); font-family:'Source Serif 4',Georgia,serif; font-size:16px;">Privacy</a>
+        <a href="#" style="color:rgba(245,237,216,0.85); font-family:'Source Serif 4',Georgia,serif; font-size:16px;">Cookies</a>
+        <a href="#" style="color:rgba(245,237,216,0.85); font-family:'Source Serif 4',Georgia,serif; font-size:16px;">Termini</a>
+        <a href="#" style="color:rgba(245,237,216,0.85); font-family:'Source Serif 4',Georgia,serif; font-size:16px;">Admin</a>
+      </div>
+    </div>
+    <div style="border-top:1px solid rgba(245,237,216,0.15); padding-top:24px; display:flex; justify-content:space-between; gap:24px; font-family:'Libre Franklin',system-ui,sans-serif; font-size:11px; letter-spacing:0.1em; text-transform:uppercase; color:rgba(245,237,216,0.55);">
+      <div>© 2026 Lievita srl · Tropea</div>
+      <div style="color:#D4973A; font-family:'Playfair Display',Georgia,serif; font-style:italic; font-size:15px; text-transform:none; letter-spacing:0;">Buona pizza, brava gente.</div>
+    </div>
+  </footer>
+
+</div>
+</x-dc>
+</body>
+</html>

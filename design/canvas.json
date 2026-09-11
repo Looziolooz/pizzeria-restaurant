@@ -1,0 +1,13 @@
+{
+  "artboards": [
+    { "file": "Main.dc.html", "x": 0, "y": 0, "w": 1440, "h": 7000, "title": "Home · desktop" },
+    { "file": "Menu.dc.html", "x": 1560, "y": 0, "w": 1440, "h": 2600, "title": "Menù e Ordina · desktop" },
+    { "file": "HomeMobile.dc.html", "x": 3120, "y": 0, "w": 390, "h": 6500, "title": "Home · mobile" }
+  ],
+  "annotations": [
+    { "id": "nota-direzione", "x": 0, "y": -320, "w": 640, "text": "BOLD KINETIC, RAFFINATO\nStessa identità del sito attuale (giallo #FFDD00, verde #075C40, azzurro #74C3D5, marquee inclinati, sticker rotondi, doodle), ma:\n· display in Anton al posto del Bebas in finto grassetto; Oswald per titoli, etichette e bottoni; Montserrat per il testo\n· 2 marquee grandi e una fascia sottile invece di 6 marquee, più una striscia di foto a due file inclinata\n· hero con la pizza tonda che sborda dal bordo, cerchio giallo piatto dietro (niente alone sfocato) e sticker che la morde\n· le 5 scene parallax e la griglia \"popolari\" fuse in una griglia di 6 tessere colorate numerate con prezzo a sticker\n· numeri giganti nel blocco verde; foto con blocco verde sfalsato nella storia; footer con wordmark gigante\n· il pranzo a €12 è la fascia sottile, non un altro marquee" },
+    { "id": "nota-foto", "x": 1560, "y": -220, "w": 520, "text": "FOTO = SEGNAPOSTO\nSono le stesse Unsplash già nel repo (src/lib/data.ts), ridotte per il canvas. Da sostituire con foto vere del locale. Nel menù le pizze senza foto usano la pizza disegnata del sito su tessera gialla, come fa già il codice. I valori del carrello sono d'esempio." },
+    { "id": "nota-menu", "x": 1560, "y": 2720, "w": 520, "text": "MENÙ: mostrate solo le prime due categorie (Classiche, Calabresi). Le altre sei (Stagionali, Bianche, Vegane, Antipasti, Bibite, Dolci) seguono con la stessa riga: foto 130px, nome Oswald, prezzo, Aggiungi o contatore." }
+  ],
+  "launch": { "view": "canvas" }
+}
