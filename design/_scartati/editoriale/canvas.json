@@ -1,0 +1,16 @@
+{
+  "artboards": [
+    { "file": "Main.dc.html", "x": 0, "y": 0, "w": 1440, "h": 5800, "title": "Home · desktop" },
+    { "file": "Menu.dc.html", "x": 1560, "y": 0, "w": 1440, "h": 2600, "title": "Menù e Ordina · desktop" },
+    { "file": "HomeMobile.dc.html", "x": 3120, "y": 0, "w": 390, "h": 4700, "title": "Home · mobile" },
+    { "file": "DirezioneB.dc.html", "x": 0, "y": 6200, "w": 1440, "h": 900, "title": "Direzione B · Forno Nero (schizzo)" },
+    { "file": "DirezioneC.dc.html", "x": 1560, "y": 6200, "w": 1440, "h": 900, "title": "Direzione C · Manifesto (schizzo)" }
+  ],
+  "annotations": [
+    { "id": "nota-direzione", "x": 0, "y": -260, "w": 620, "text": "DIREZIONE SCELTA: Lievita Editoriale\nCostruita sul design system Good Food del vault: foto protagoniste, serif con carattere (Playfair Display + Source Serif 4 + Libre Franklin), palette pergamena / terracotta / espresso, grana leggera da carta da forno.\n\nPerché: il sito attuale (Bold Kinetic) urla; una pizzeria a lievito madre con 28 coperti vende calore e materia, non velocità. Tradeoff: meno energia visiva, e vive o muore con la qualità delle foto." },
+    { "id": "nota-foto", "x": 1560, "y": -220, "w": 520, "text": "FOTO = SEGNAPOSTO\nSono le stesse Unsplash già nel repo (src/lib/data.ts), ridotte per il canvas. Da sostituire con foto vere del locale: forno, impasto, taglio a tavola, Largo Galluppi.\nLe pizze senza foto nel menù hanno un riquadro crema. I valori del carrello sono d'esempio." },
+    { "id": "nota-b", "x": 0, "y": 5960, "w": 560, "text": "ALTERNATIVA B: Forno Nero\nNotturno: fondo espresso quasi nero, brace terracotta, foto scure ad alto contrasto.\nPro: premium, memorabile la sera, esalta il fuoco del forno.\nContro: pesa a pranzo e sul delivery di giorno; richiede foto eccellenti; leggibilità da curare." },
+    { "id": "nota-c", "x": 1560, "y": 5960, "w": 560, "text": "ALTERNATIVA C: Manifesto tipografico\nEredita l'energia del sito attuale (tipografia enorme, sticker rotondo Ordina) ma senza marquee, cursore custom e tre colori: nero, crema, un rosso.\nPro: distintivo, velocissimo, regge anche con poche foto.\nContro: meno appetito; più freddo per un pubblico turistico." }
+  ],
+  "launch": { "view": "canvas" }
+}

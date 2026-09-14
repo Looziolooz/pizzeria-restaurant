@@ -62,7 +62,7 @@ export function MenuScreen() {
                   window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY - offset, behavior: "smooth" });
                 }
               }}
-              className={`shrink-0 px-4 py-2 font-display uppercase text-[12px] tracking-[0.08em] font-semibold transition-colors ${
+              className={`shrink-0 inline-flex items-center min-h-[44px] px-4 font-display uppercase text-[12px] tracking-[0.08em] font-semibold transition-colors ${
                 activeCat === c.id ? "bg-bk-green text-bk-yellow" : "text-bk-green hover:bg-bk-yellow"
               }`}
               style={{ borderRadius: 0 }}
@@ -129,7 +129,7 @@ export function ModeToggle() {
         <button
           key={m.id}
           onClick={() => cart.setMode(m.id)}
-          className="inline-flex items-center gap-2 px-5 py-3 font-display uppercase text-[13px] tracking-[0.06em] font-semibold transition-colors"
+          className="inline-flex items-center gap-2 min-h-[44px] px-5 py-3 font-display uppercase text-[13px] tracking-[0.06em] font-semibold transition-colors"
           style={{
             background: cart.mode === m.id ? "var(--bk-green)" : "transparent",
             color: cart.mode === m.id ? "var(--bk-yellow)" : "var(--bk-green)",
@@ -151,7 +151,7 @@ export function MenuRow({ item }: { item: MenuItem }) {
       <div className="w-[110px] h-[110px] md:w-[130px] md:h-[130px] overflow-hidden shrink-0 relative bg-bk-field">
         {item.photo ? (
           // eslint-disable-next-line @next/next/no-img-element
-          <img src={item.photo} alt="" loading="lazy" className="w-full h-full object-cover transition-transform duration-500 ease-sig group-hover:scale-110" />
+          <img src={item.photo} alt="" loading="lazy" className="w-full h-full object-cover transition-transform duration-700 ease-sig group-hover:scale-105" />
         ) : (
           <div className="w-full h-full grid place-items-center bg-bk-yellow">
             <PizzaThumb size={100} />

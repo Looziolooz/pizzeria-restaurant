@@ -11,10 +11,10 @@ const config: Config = {
     extend: {
       fontFamily: {
         display: ["Knockout", "Oswald", "Anton", "Bebas Neue", "sans-serif"],
-        wide: ["Knockout", "Anton", "Bebas Neue", "Oswald", "sans-serif"],
-        xl: ["Knockout", "Bebas Neue", "Anton", "Oswald", "sans-serif"],
+        wide: ["Anton", "Knockout", "Oswald", "sans-serif"],
+        xl: ["Anton", "Knockout", "Oswald", "sans-serif"],
         // explicit aliases used across the prototype markup
-        "display-xl": ["Knockout", "Bebas Neue", "Anton", "Oswald", "sans-serif"],
+        "display-xl": ["Anton", "Knockout", "Oswald", "sans-serif"],
         support: ["Gotham", "Montserrat", "system-ui", "sans-serif"],
         sans: ["Gotham", "Montserrat", "system-ui", "sans-serif"],
         // legacy alias used in admin code

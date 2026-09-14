@@ -1,0 +1,291 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=Bebas+Neue&family=Oswald:wght@400;500;600;700&family=Montserrat:wght@400;500;700&display=swap">
+  <style>
+    * { box-sizing: border-box; }
+    body { margin: 0; background: #075C40; }
+    a { color: #075C40; text-decoration: none; }
+    a:hover { opacity: 0.78; }
+    .lv-track-l { animation: lvscrollL 40s linear infinite; }
+    @keyframes lvscrollL { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+    @media (prefers-reduced-motion: reduce) { .lv-track-l { animation: none; } }
+  </style>
+</helmet>
+<div style="width:1440px; background:#FFFFFF; color:#363636; font-family:'Montserrat',system-ui,sans-serif; font-size:18px; line-height:1.4; display:flex; flex-direction:column;">
+
+  <!-- HEADER -->
+  <header style="height:86px; display:grid; grid-template-columns:1fr auto 1fr; align-items:center; gap:16px; padding:0 36px; background:rgba(255,255,255,0.96); border-bottom:1px solid #DDDDDD;">
+    <nav style="display:flex; align-items:center; gap:28px; justify-self:start; font-family:'Oswald',sans-serif; font-weight:600; font-size:18px; letter-spacing:0.06em; text-transform:uppercase;">
+      <a href="#" style="color:#363636; padding:4px 0;">Home</a>
+      <a href="#" style="color:#075C40; border-bottom:2px solid #075C40; padding:4px 0;">Menù &amp; Ordina</a>
+      <a href="#" style="color:#363636; padding:4px 0;">Prenota</a>
+    </nav>
+    <a href="#" style="display:flex; flex-direction:column; align-items:center; gap:4px;">
+      <span style="font-family:'Bebas Neue',Impact,sans-serif; font-size:38px; letter-spacing:0.06em; line-height:1; color:#075C40;">LIEVITA</span>
+      <span style="font-family:'Oswald',sans-serif; font-weight:500; font-size:10px; letter-spacing:0.2em; text-transform:uppercase; color:rgba(7,92,64,0.75);">Tropea · dal 2014</span>
+    </a>
+    <div style="display:flex; align-items:center; gap:20px; justify-self:end;">
+      <a href="#" style="color:#363636; font-family:'Oswald',sans-serif; font-weight:600; font-size:18px; letter-spacing:0.06em; text-transform:uppercase; padding:4px 0;">Contatti</a>
+      <span style="display:inline-flex; align-items:center; gap:8px; padding:8px 14px; background:#B5ED7C; color:#075C40; font-family:'Oswald',sans-serif; font-weight:700; font-size:12px; letter-spacing:0.06em; text-transform:uppercase;">
+        <span style="display:inline-block; width:10px; height:10px; border-radius:50%; background:#72CE16;"></span>
+        <span>Aperto fino alle 23:30</span>
+      </span>
+      <a href="#" style="position:relative; display:inline-flex; align-items:center; gap:10px; padding:10px 18px; background:#075C40; color:#FFDD00; font-family:'Oswald',sans-serif; font-weight:600; font-size:14px; letter-spacing:0.04em; text-transform:uppercase;">Ordina<span style="position:absolute; top:-8px; right:-8px; min-width:22px; height:22px; padding:0 6px; border-radius:11px; background:#FFDD00; color:#075C40; box-shadow:0 0 0 2px #075C40; display:grid; place-items:center; font-family:'Oswald',sans-serif; font-weight:700; font-size:11px; letter-spacing:0;">2</span></a>
+      <a href="#" aria-label="Admin" style="display:inline-grid; place-items:center; width:36px; height:36px; border-radius:50%; border:1px solid #075C40; color:#075C40;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2 M12 7a4 4 0 100 8 4 4 0 000-8z"></path></svg></a>
+    </div>
+  </header>
+
+  <!-- TESTATA (giallo) -->
+  <section style="background:#FFDD00; padding:56px 36px 64px; display:flex; justify-content:space-between; align-items:flex-end; gap:24px; flex-wrap:wrap;">
+    <div style="display:flex; flex-direction:column; gap:16px;">
+      <div style="display:flex; align-items:center; gap:12px; font-family:'Oswald',sans-serif; font-weight:600; font-size:13px; letter-spacing:0.18em; text-transform:uppercase; color:#075C40;">
+        <span style="display:inline-block; width:32px; height:1px; background:#075C40;"></span>
+        <span>Ordina online</span>
+      </div>
+      <h1 style="font-family:'Anton',Impact,sans-serif; font-weight:400; text-transform:uppercase; font-size:115px; line-height:0.88; letter-spacing:0.005em; margin:0; color:#075C40;">Il nostro<br><span style="color:transparent; -webkit-text-stroke:2px #075C40;">Menù.</span></h1>
+      <p style="font-family:'Montserrat',system-ui,sans-serif; font-size:18px; line-height:1.4; margin:0; max-width:560px; color:#363636;">Tagliate a spicchi, pronte in 25 minuti. Delivery o asporto, scegli tu.</p>
+    </div>
+    <div style="display:inline-flex; border:2px solid #075C40; background:#FFFFFF;">
+      <span style="display:inline-flex; align-items:center; gap:8px; padding:12px 20px; background:#075C40; color:#FFDD00; font-family:'Oswald',sans-serif; font-weight:600; font-size:13px; letter-spacing:0.06em; text-transform:uppercase;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5.5 17.5a3.5 3.5 0 110-7 3.5 3.5 0 010 7z M18.5 17.5a3.5 3.5 0 110-7 3.5 3.5 0 010 7z M5.5 14L9 7h4l2.5 7 M13 7h4l-1 4"></path></svg>Delivery<span style="text-transform:none; letter-spacing:0; font-size:11px; opacity:0.7; margin-left:4px;">· min €18,00</span></span>
+      <span style="display:inline-flex; align-items:center; gap:8px; padding:12px 20px; background:transparent; color:#075C40; font-family:'Oswald',sans-serif; font-weight:600; font-size:13px; letter-spacing:0.06em; text-transform:uppercase;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l1-5h16l1 5 M5 9v11h14V9 M9 14h6"></path></svg>Asporto<span style="text-transform:none; letter-spacing:0; font-size:11px; opacity:0.7; margin-left:4px;">· min €12,00</span></span>
+    </div>
+  </section>
+
+  <!-- MARQUEE verde -->
+  <section style="position:relative; overflow:hidden; background:#075C40; height:210px; padding:40px 0;">
+    <div style="display:flex; white-space:nowrap; width:100%; font-family:'Anton',Impact,sans-serif; text-transform:uppercase; font-size:130px; line-height:0.88; letter-spacing:0.015em; color:#FFDD00; padding:8px 0; transform:rotate(-9deg) scale(1.16);">
+      <div class="lv-track-l" style="display:inline-flex; white-space:nowrap; flex-shrink:0;">
+        <span style="display:inline-flex; align-items:center; gap:36px; padding:0 30px;">Forno acceso<span style="display:inline-block; width:18px; height:18px; border-radius:50%; background:currentColor; opacity:0.55; flex-shrink:0;"></span>Fresco oggi<span style="display:inline-block; width:18px; height:18px; border-radius:50%; background:currentColor; opacity:0.55; flex-shrink:0;"></span>Ordina e ritira<span style="display:inline-block; width:18px; height:18px; border-radius:50%; background:currentColor; opacity:0.55; flex-shrink:0;"></span>Delivery 8 km<span style="display:inline-block; width:18px; height:18px; border-radius:50%; background:currentColor; opacity:0.55; flex-shrink:0;"></span></span>
+        <span style="display:inline-flex; align-items:center; gap:36px; padding:0 30px;">Forno acceso<span style="display:inline-block; width:18px; height:18px; border-radius:50%; background:currentColor; opacity:0.55; flex-shrink:0;"></span>Fresco oggi<span style="display:inline-block; width:18px; height:18px; border-radius:50%; background:currentColor; opacity:0.55; flex-shrink:0;"></span>Ordina e ritira<span style="display:inline-block; width:18px; height:18px; border-radius:50%; background:currentColor; opacity:0.55; flex-shrink:0;"></span>Delivery 8 km<span style="display:inline-block; width:18px; height:18px; border-radius:50%; background:currentColor; opacity:0.55; flex-shrink:0;"></span></span>
+      </div>
+    </div>
+  </section>
+
+  <!-- CATEGORIE (sticky) -->
+  <nav style="position:sticky; top:0; z-index:5; background:rgba(255,255,255,0.96); border-bottom:2px solid #075C40; padding:12px 36px; display:flex; gap:8px; font-family:'Oswald',sans-serif; font-weight:600; font-size:12px; letter-spacing:0.08em; text-transform:uppercase;">
+    <a href="#" style="padding:8px 16px; background:#075C40; color:#FFDD00;">Classiche</a>
+    <a href="#" style="padding:8px 16px; color:#075C40;">Calabresi</a>
+    <a href="#" style="padding:8px 16px; color:#075C40;">Stagionali</a>
+    <a href="#" style="padding:8px 16px; color:#075C40;">Bianche</a>
+    <a href="#" style="padding:8px 16px; color:#075C40;">Vegane</a>
+    <a href="#" style="padding:8px 16px; color:#075C40;">Antipasti</a>
+    <a href="#" style="padding:8px 16px; color:#075C40;">Bibite</a>
+    <a href="#" style="padding:8px 16px; color:#075C40;">Dolci</a>
+  </nav>
+
+  <!-- LISTA + CARRELLO -->
+  <section style="padding:56px 36px 96px; display:grid; grid-template-columns:1fr 400px; gap:56px; align-items:start;">
+    <div style="display:flex; flex-direction:column; gap:56px;">
+
+      <!-- Classiche -->
+      <div style="display:flex; flex-direction:column; gap:28px;">
+        <div style="display:flex; align-items:baseline; justify-content:space-between; gap:16px; flex-wrap:wrap; border-bottom:2px solid #075C40; padding-bottom:16px;">
+          <h2 style="font-family:'Anton',Impact,sans-serif; font-weight:400; text-transform:uppercase; font-size:84px; line-height:0.9; letter-spacing:0.005em; margin:0; color:#075C40;">Classiche</h2>
+          <div style="font-family:'Montserrat',system-ui,sans-serif; font-size:14px; color:#363636; max-width:380px;">Le pizze di sempre, fatte come si deve.</div>
+        </div>
+        <div style="display:grid; grid-template-columns:repeat(2, minmax(0, 1fr)); gap:28px 24px;">
+
+          <div style="display:flex; gap:16px; align-items:flex-start;">
+            <div style="position:relative; width:130px; height:130px; flex-shrink:0; overflow:hidden; background:#EEEEEE;"><img src="margherita.jpg" alt="" style="width:100%; height:100%; object-fit:cover; display:block;"></div>
+            <div style="flex:1; min-width:0; display:flex; flex-direction:column; gap:4px;">
+              <div style="display:flex; align-items:baseline; justify-content:space-between; gap:12px;">
+                <h3 style="font-family:'Oswald',sans-serif; font-weight:600; text-transform:uppercase; font-size:22px; line-height:0.95; margin:0; color:#075C40;">Margherita</h3>
+                <div style="font-family:'Oswald',sans-serif; font-weight:700; font-size:18px; color:#075C40; white-space:nowrap;">€8,50</div>
+              </div>
+              <p style="font-family:'Montserrat',system-ui,sans-serif; font-size:13px; line-height:1.35; margin:0 0 8px; color:#363636;">Pomodoro San Marzano DOP, fior di latte, basilico, olio EVO.</p>
+              <a href="#" style="align-self:flex-start; display:inline-flex; align-items:center; gap:8px; padding:10px 18px; background:transparent; color:#075C40; box-shadow:inset 0 0 0 2px #075C40; font-family:'Oswald',sans-serif; font-weight:600; font-size:14px; letter-spacing:0.04em; text-transform:uppercase;"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14 M5 12h14"></path></svg>Aggiungi</a>
+            </div>
+          </div>
+
+          <div style="display:flex; gap:16px; align-items:flex-start;">
+            <div style="position:relative; width:130px; height:130px; flex-shrink:0; overflow:hidden; background:#FFDD00; display:grid; place-items:center;">
+              <svg viewBox="0 0 200 200" width="100" height="100"><circle cx="100" cy="100" r="92" fill="#D9A55C"></circle><circle cx="100" cy="100" r="78" fill="#B23A22"></circle><ellipse cx="150" cy="100" rx="10" ry="8" fill="#F4E4C1" opacity="0.92"></ellipse><ellipse cx="138.3" cy="132.1" rx="10" ry="8" fill="#F4E4C1" opacity="0.92"></ellipse><ellipse cx="108.7" cy="149.2" rx="10" ry="8" fill="#F4E4C1" opacity="0.92"></ellipse><ellipse cx="75" cy="143.3" rx="10" ry="8" fill="#F4E4C1" opacity="0.92"></ellipse><ellipse cx="53" cy="117.1" rx="10" ry="8" fill="#F4E4C1" opacity="0.92"></ellipse><ellipse cx="53" cy="82.9" rx="10" ry="8" fill="#F4E4C1" opacity="0.92"></ellipse><ellipse cx="75" cy="56.7" rx="10" ry="8" fill="#F4E4C1" opacity="0.92"></ellipse><ellipse cx="108.7" cy="50.8" rx="10" ry="8" fill="#F4E4C1" opacity="0.92"></ellipse><ellipse cx="138.3" cy="67.9" rx="10" ry="8" fill="#F4E4C1" opacity="0.92"></ellipse><path transform="translate(127.6 111.7)" d="M 0 -6 Q 4 -3 0 6 Q -4 -3 0 -6 Z" fill="#3D6B2C"></path><path transform="translate(108.1 128.9)" d="M 0 -6 Q 4 -3 0 6 Q -4 -3 0 -6 Z" fill="#3D6B2C"></path><path transform="translate(82.4 124.3)" d="M 0 -6 Q 4 -3 0 6 Q -4 -3 0 -6 Z" fill="#3D6B2C"></path><path transform="translate(70 101.5)" d="M 0 -6 Q 4 -3 0 6 Q -4 -3 0 -6 Z" fill="#3D6B2C"></path><path transform="translate(80.1 77.5)" d="M 0 -6 Q 4 -3 0 6 Q -4 -3 0 -6 Z" fill="#3D6B2C"></path><path transform="translate(105.3 70.5)" d="M 0 -6 Q 4 -3 0 6 Q -4 -3 0 -6 Z" fill="#3D6B2C"></path><path transform="translate(126.4 85.7)" d="M 0 -6 Q 4 -3 0 6 Q -4 -3 0 -6 Z" fill="#3D6B2C"></path></svg>
+              <span style="position:absolute; top:4px; right:4px; display:inline-flex; align-items:center; padding:2px 6px; border:2px solid #B5ED7C; background:#B5ED7C; color:#075C40; font-family:'Oswald',sans-serif; font-weight:600; font-size:9px; letter-spacing:0.08em; text-transform:uppercase; border-radius:999px;">VG</span>
+            </div>
+            <div style="flex:1; min-width:0; display:flex; flex-direction:column; gap:4px;">
+              <div style="display:flex; align-items:baseline; justify-content:space-between; gap:12px;">
+                <h3 style="font-family:'Oswald',sans-serif; font-weight:600; text-transform:uppercase; font-size:22px; line-height:0.95; margin:0; color:#075C40;">Marinara</h3>
+                <div style="font-family:'Oswald',sans-serif; font-weight:700; font-size:18px; color:#075C40; white-space:nowrap;">€7,00</div>
+              </div>
+              <p style="font-family:'Montserrat',system-ui,sans-serif; font-size:13px; line-height:1.35; margin:0 0 8px; color:#363636;">Pomodoro, aglio, origano, olio EVO. Senza mozzarella.</p>
+              <a href="#" style="align-self:flex-start; display:inline-flex; align-items:center; gap:8px; padding:10px 18px; background:transparent; color:#075C40; box-shadow:inset 0 0 0 2px #075C40; font-family:'Oswald',sans-serif; font-weight:600; font-size:14px; letter-spacing:0.04em; text-transform:uppercase;"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14 M5 12h14"></path></svg>Aggiungi</a>
+            </div>
+          </div>
+
+          <div style="display:flex; gap:16px; align-items:flex-start;">
+            <div style="position:relative; width:130px; height:130px; flex-shrink:0; overflow:hidden; background:#EEEEEE;"><img src="diavola.jpg" alt="" style="width:100%; height:100%; object-fit:cover; display:block;"></div>
+            <div style="flex:1; min-width:0; display:flex; flex-direction:column; gap:4px;">
+              <div style="display:flex; align-items:baseline; justify-content:space-between; gap:12px;">
+                <h3 style="font-family:'Oswald',sans-serif; font-weight:600; text-transform:uppercase; font-size:22px; line-height:0.95; margin:0; color:#075C40;">Diavola</h3>
+                <div style="font-family:'Oswald',sans-serif; font-weight:700; font-size:18px; color:#075C40; white-space:nowrap;">€10,50</div>
+              </div>
+              <p style="font-family:'Montserrat',system-ui,sans-serif; font-size:13px; line-height:1.35; margin:0 0 8px; color:#363636;">Pomodoro, fior di latte, salame piccante calabrese, olio EVO.</p>
+              <a href="#" style="align-self:flex-start; display:inline-flex; align-items:center; gap:8px; padding:10px 18px; background:transparent; color:#075C40; box-shadow:inset 0 0 0 2px #075C40; font-family:'Oswald',sans-serif; font-weight:600; font-size:14px; letter-spacing:0.04em; text-transform:uppercase;"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14 M5 12h14"></path></svg>Aggiungi</a>
+            </div>
+          </div>
+
+          <div style="display:flex; gap:16px; align-items:flex-start;">
+            <div style="position:relative; width:130px; height:130px; flex-shrink:0; overflow:hidden; background:#FFDD00; display:grid; place-items:center;">
+              <svg viewBox="0 0 200 200" width="100" height="100"><circle cx="100" cy="100" r="92" fill="#D9A55C"></circle><circle cx="100" cy="100" r="78" fill="#F4E4C1"></circle><ellipse cx="150" cy="100" rx="10" ry="8" fill="#FBF1D9" opacity="0.92"></ellipse><ellipse cx="138.3" cy="132.1" rx="10" ry="8" fill="#FBF1D9" opacity="0.92"></ellipse><ellipse cx="108.7" cy="149.2" rx="10" ry="8" fill="#FBF1D9" opacity="0.92"></ellipse><ellipse cx="75" cy="143.3" rx="10" ry="8" fill="#FBF1D9" opacity="0.92"></ellipse><ellipse cx="53" cy="117.1" rx="10" ry="8" fill="#FBF1D9" opacity="0.92"></ellipse><ellipse cx="53" cy="82.9" rx="10" ry="8" fill="#FBF1D9" opacity="0.92"></ellipse><ellipse cx="75" cy="56.7" rx="10" ry="8" fill="#FBF1D9" opacity="0.92"></ellipse><ellipse cx="108.7" cy="50.8" rx="10" ry="8" fill="#FBF1D9" opacity="0.92"></ellipse><ellipse cx="138.3" cy="67.9" rx="10" ry="8" fill="#FBF1D9" opacity="0.92"></ellipse><path transform="translate(127.6 111.7)" d="M 0 -6 Q 4 -3 0 6 Q -4 -3 0 -6 Z" fill="#5C6B3F"></path><path transform="translate(108.1 128.9)" d="M 0 -6 Q 4 -3 0 6 Q -4 -3 0 -6 Z" fill="#5C6B3F"></path><path transform="translate(82.4 124.3)" d="M 0 -6 Q 4 -3 0 6 Q -4 -3 0 -6 Z" fill="#5C6B3F"></path><path transform="translate(70 101.5)" d="M 0 -6 Q 4 -3 0 6 Q -4 -3 0 -6 Z" fill="#5C6B3F"></path><path transform="translate(80.1 77.5)" d="M 0 -6 Q 4 -3 0 6 Q -4 -3 0 -6 Z" fill="#5C6B3F"></path><path transform="translate(105.3 70.5)" d="M 0 -6 Q 4 -3 0 6 Q -4 -3 0 -6 Z" fill="#5C6B3F"></path><path transform="translate(126.4 85.7)" d="M 0 -6 Q 4 -3 0 6 Q -4 -3 0 -6 Z" fill="#5C6B3F"></path></svg>
+            </div>
+            <div style="flex:1; min-width:0; display:flex; flex-direction:column; gap:4px;">
+              <div style="display:flex; align-items:baseline; justify-content:space-between; gap:12px;">
+                <h3 style="font-family:'Oswald',sans-serif; font-weight:600; text-transform:uppercase; font-size:22px; line-height:0.95; margin:0; color:#075C40;">Quattro Formaggi</h3>
+                <div style="font-family:'Oswald',sans-serif; font-weight:700; font-size:18px; color:#075C40; white-space:nowrap;">€11,50</div>
+              </div>
+              <p style="font-family:'Montserrat',system-ui,sans-serif; font-size:13px; line-height:1.35; margin:0 0 8px; color:#363636;">Mozzarella, gorgonzola, caciocavallo silano DOP, parmigiano 24 mesi.</p>
+              <a href="#" style="align-self:flex-start; display:inline-flex; align-items:center; gap:8px; padding:10px 18px; background:transparent; color:#075C40; box-shadow:inset 0 0 0 2px #075C40; font-family:'Oswald',sans-serif; font-weight:600; font-size:14px; letter-spacing:0.04em; text-transform:uppercase;"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14 M5 12h14"></path></svg>Aggiungi</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Calabresi -->
+      <div style="display:flex; flex-direction:column; gap:28px;">
+        <div style="display:flex; align-items:baseline; justify-content:space-between; gap:16px; flex-wrap:wrap; border-bottom:2px solid #075C40; padding-bottom:16px;">
+          <h2 style="font-family:'Anton',Impact,sans-serif; font-weight:400; text-transform:uppercase; font-size:84px; line-height:0.9; letter-spacing:0.005em; margin:0; color:#075C40;">Calabresi</h2>
+          <div style="font-family:'Montserrat',system-ui,sans-serif; font-size:14px; color:#363636; max-width:380px;">Topping della nostra terra: 'nduja, cipolla di Tropea, caciocavallo.</div>
+        </div>
+        <div style="display:grid; grid-template-columns:repeat(2, minmax(0, 1fr)); gap:28px 24px;">
+
+          <div style="display:flex; gap:16px; align-items:flex-start;">
+            <div style="position:relative; width:130px; height:130px; flex-shrink:0; overflow:hidden; background:#EEEEEE;"><img src="nduja.jpg" alt="" style="width:100%; height:100%; object-fit:cover; display:block;"><span style="position:absolute; top:4px; left:4px; display:inline-flex; align-items:center; padding:2px 6px; border:2px solid #075C40; background:#075C40; color:#FFDD00; font-family:'Oswald',sans-serif; font-weight:600; font-size:9px; letter-spacing:0.08em; text-transform:uppercase; border-radius:999px;">★ Forno</span></div>
+            <div style="flex:1; min-width:0; display:flex; flex-direction:column; gap:4px;">
+              <div style="display:flex; align-items:baseline; justify-content:space-between; gap:12px;">
+                <h3 style="font-family:'Oswald',sans-serif; font-weight:600; text-transform:uppercase; font-size:22px; line-height:0.95; margin:0; color:#075C40;">'Nduja di Spilinga</h3>
+                <div style="font-family:'Oswald',sans-serif; font-weight:700; font-size:18px; color:#075C40; white-space:nowrap;">€12,50</div>
+              </div>
+              <p style="font-family:'Montserrat',system-ui,sans-serif; font-size:13px; line-height:1.35; margin:0 0 8px; color:#363636;">Pomodoro, fior di latte, 'nduja, cipolla di Tropea, miele di castagno.</p>
+              <div style="display:inline-flex; align-items:center; gap:4px; align-self:flex-start;">
+                <a href="#" style="display:inline-grid; place-items:center; width:32px; height:32px; background:#075C40; color:#FFDD00;"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14"></path></svg></a>
+                <span style="min-width:24px; text-align:center; font-family:'Oswald',sans-serif; font-weight:700; font-size:16px; color:#075C40;">1</span>
+                <a href="#" style="display:inline-grid; place-items:center; width:32px; height:32px; background:#075C40; color:#FFDD00;"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14 M5 12h14"></path></svg></a>
+              </div>
+            </div>
+          </div>
+
+          <div style="display:flex; gap:16px; align-items:flex-start;">
+            <div style="position:relative; width:130px; height:130px; flex-shrink:0; overflow:hidden; background:#EEEEEE;"><img src="tropea.jpg" alt="" style="width:100%; height:100%; object-fit:cover; display:block;"></div>
+            <div style="flex:1; min-width:0; display:flex; flex-direction:column; gap:4px;">
+              <div style="display:flex; align-items:baseline; justify-content:space-between; gap:12px;">
+                <h3 style="font-family:'Oswald',sans-serif; font-weight:600; text-transform:uppercase; font-size:22px; line-height:0.95; margin:0; color:#075C40;">Tropea</h3>
+                <div style="font-family:'Oswald',sans-serif; font-weight:700; font-size:18px; color:#075C40; white-space:nowrap;">€13,00</div>
+              </div>
+              <p style="font-family:'Montserrat',system-ui,sans-serif; font-size:13px; line-height:1.35; margin:0 0 8px; color:#363636;">Pomodoro, mozzarella di bufala, cipolla rossa di Tropea IGP, alici di Cetara, capperi.</p>
+              <div style="display:inline-flex; align-items:center; gap:4px; align-self:flex-start;">
+                <a href="#" style="display:inline-grid; place-items:center; width:32px; height:32px; background:#075C40; color:#FFDD00;"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14"></path></svg></a>
+                <span style="min-width:24px; text-align:center; font-family:'Oswald',sans-serif; font-weight:700; font-size:16px; color:#075C40;">1</span>
+                <a href="#" style="display:inline-grid; place-items:center; width:32px; height:32px; background:#075C40; color:#FFDD00;"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14 M5 12h14"></path></svg></a>
+              </div>
+            </div>
+          </div>
+
+          <div style="display:flex; gap:16px; align-items:flex-start;">
+            <div style="position:relative; width:130px; height:130px; flex-shrink:0; overflow:hidden; background:#FFDD00; display:grid; place-items:center;">
+              <svg viewBox="0 0 200 200" width="100" height="100"><circle cx="100" cy="100" r="92" fill="#D9A55C"></circle><circle cx="100" cy="100" r="78" fill="#7A4A2E"></circle><ellipse cx="150" cy="100" rx="10" ry="8" fill="#E8D7A6" opacity="0.92"></ellipse><ellipse cx="138.3" cy="132.1" rx="10" ry="8" fill="#E8D7A6" opacity="0.92"></ellipse><ellipse cx="108.7" cy="149.2" rx="10" ry="8" fill="#E8D7A6" opacity="0.92"></ellipse><ellipse cx="75" cy="143.3" rx="10" ry="8" fill="#E8D7A6" opacity="0.92"></ellipse><ellipse cx="53" cy="117.1" rx="10" ry="8" fill="#E8D7A6" opacity="0.92"></ellipse><ellipse cx="53" cy="82.9" rx="10" ry="8" fill="#E8D7A6" opacity="0.92"></ellipse><ellipse cx="75" cy="56.7" rx="10" ry="8" fill="#E8D7A6" opacity="0.92"></ellipse><ellipse cx="108.7" cy="50.8" rx="10" ry="8" fill="#E8D7A6" opacity="0.92"></ellipse><ellipse cx="138.3" cy="67.9" rx="10" ry="8" fill="#E8D7A6" opacity="0.92"></ellipse><path transform="translate(127.6 111.7)" d="M 0 -6 Q 4 -3 0 6 Q -4 -3 0 -6 Z" fill="#3D6B2C"></path><path transform="translate(108.1 128.9)" d="M 0 -6 Q 4 -3 0 6 Q -4 -3 0 -6 Z" fill="#3D6B2C"></path><path transform="translate(82.4 124.3)" d="M 0 -6 Q 4 -3 0 6 Q -4 -3 0 -6 Z" fill="#3D6B2C"></path><path transform="translate(70 101.5)" d="M 0 -6 Q 4 -3 0 6 Q -4 -3 0 -6 Z" fill="#3D6B2C"></path><path transform="translate(80.1 77.5)" d="M 0 -6 Q 4 -3 0 6 Q -4 -3 0 -6 Z" fill="#3D6B2C"></path><path transform="translate(105.3 70.5)" d="M 0 -6 Q 4 -3 0 6 Q -4 -3 0 -6 Z" fill="#3D6B2C"></path><path transform="translate(126.4 85.7)" d="M 0 -6 Q 4 -3 0 6 Q -4 -3 0 -6 Z" fill="#3D6B2C"></path></svg>
+            </div>
+            <div style="flex:1; min-width:0; display:flex; flex-direction:column; gap:4px;">
+              <div style="display:flex; align-items:baseline; justify-content:space-between; gap:12px;">
+                <h3 style="font-family:'Oswald',sans-serif; font-weight:600; text-transform:uppercase; font-size:22px; line-height:0.95; margin:0; color:#075C40;">Pollino</h3>
+                <div style="font-family:'Oswald',sans-serif; font-weight:700; font-size:18px; color:#075C40; white-space:nowrap;">€12,00</div>
+              </div>
+              <p style="font-family:'Montserrat',system-ui,sans-serif; font-size:13px; line-height:1.35; margin:0 0 8px; color:#363636;">Crema di funghi porcini, caciocavallo silano, soppressata, rosmarino.</p>
+              <a href="#" style="align-self:flex-start; display:inline-flex; align-items:center; gap:8px; padding:10px 18px; background:transparent; color:#075C40; box-shadow:inset 0 0 0 2px #075C40; font-family:'Oswald',sans-serif; font-weight:600; font-size:14px; letter-spacing:0.04em; text-transform:uppercase;"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14 M5 12h14"></path></svg>Aggiungi</a>
+            </div>
+          </div>
+
+          <div style="display:flex; gap:16px; align-items:flex-start;">
+            <div style="position:relative; width:130px; height:130px; flex-shrink:0; overflow:hidden; background:#FFDD00; display:grid; place-items:center;">
+              <svg viewBox="0 0 200 200" width="100" height="100"><circle cx="100" cy="100" r="92" fill="#D9A55C"></circle><circle cx="100" cy="100" r="78" fill="#7A4A2E"></circle><ellipse cx="150" cy="100" rx="10" ry="8" fill="#E8D7A6" opacity="0.92"></ellipse><ellipse cx="138.3" cy="132.1" rx="10" ry="8" fill="#E8D7A6" opacity="0.92"></ellipse><ellipse cx="108.7" cy="149.2" rx="10" ry="8" fill="#E8D7A6" opacity="0.92"></ellipse><ellipse cx="75" cy="143.3" rx="10" ry="8" fill="#E8D7A6" opacity="0.92"></ellipse><ellipse cx="53" cy="117.1" rx="10" ry="8" fill="#E8D7A6" opacity="0.92"></ellipse><ellipse cx="53" cy="82.9" rx="10" ry="8" fill="#E8D7A6" opacity="0.92"></ellipse><ellipse cx="75" cy="56.7" rx="10" ry="8" fill="#E8D7A6" opacity="0.92"></ellipse><ellipse cx="108.7" cy="50.8" rx="10" ry="8" fill="#E8D7A6" opacity="0.92"></ellipse><ellipse cx="138.3" cy="67.9" rx="10" ry="8" fill="#E8D7A6" opacity="0.92"></ellipse><path transform="translate(127.6 111.7)" d="M 0 -6 Q 4 -3 0 6 Q -4 -3 0 -6 Z" fill="#3D6B2C"></path><path transform="translate(108.1 128.9)" d="M 0 -6 Q 4 -3 0 6 Q -4 -3 0 -6 Z" fill="#3D6B2C"></path><path transform="translate(82.4 124.3)" d="M 0 -6 Q 4 -3 0 6 Q -4 -3 0 -6 Z" fill="#3D6B2C"></path><path transform="translate(70 101.5)" d="M 0 -6 Q 4 -3 0 6 Q -4 -3 0 -6 Z" fill="#3D6B2C"></path><path transform="translate(80.1 77.5)" d="M 0 -6 Q 4 -3 0 6 Q -4 -3 0 -6 Z" fill="#3D6B2C"></path><path transform="translate(105.3 70.5)" d="M 0 -6 Q 4 -3 0 6 Q -4 -3 0 -6 Z" fill="#3D6B2C"></path><path transform="translate(126.4 85.7)" d="M 0 -6 Q 4 -3 0 6 Q -4 -3 0 -6 Z" fill="#3D6B2C"></path></svg>
+            </div>
+            <div style="flex:1; min-width:0; display:flex; flex-direction:column; gap:4px;">
+              <div style="display:flex; align-items:baseline; justify-content:space-between; gap:12px;">
+                <h3 style="font-family:'Oswald',sans-serif; font-weight:600; text-transform:uppercase; font-size:22px; line-height:0.95; margin:0; color:#075C40;">Sila</h3>
+                <div style="font-family:'Oswald',sans-serif; font-weight:700; font-size:18px; color:#075C40; white-space:nowrap;">€11,50</div>
+              </div>
+              <p style="font-family:'Montserrat',system-ui,sans-serif; font-size:13px; line-height:1.35; margin:0 0 8px; color:#363636;">Crema di patate della Sila, pecorino crotonese, pancetta, peperoncino.</p>
+              <a href="#" style="align-self:flex-start; display:inline-flex; align-items:center; gap:8px; padding:10px 18px; background:transparent; color:#075C40; box-shadow:inset 0 0 0 2px #075C40; font-family:'Oswald',sans-serif; font-weight:600; font-size:14px; letter-spacing:0.04em; text-transform:uppercase;"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14 M5 12h14"></path></svg>Aggiungi</a>
+            </div>
+          </div>
+
+          <div style="display:flex; gap:16px; align-items:flex-start;">
+            <div style="position:relative; width:130px; height:130px; flex-shrink:0; overflow:hidden; background:#EEEEEE;"><img src="bergamotto.jpg" alt="" style="width:100%; height:100%; object-fit:cover; display:block;"><span style="position:absolute; top:4px; left:4px; display:inline-flex; align-items:center; padding:2px 6px; border:2px solid #075C40; background:#075C40; color:#FFDD00; font-family:'Oswald',sans-serif; font-weight:600; font-size:9px; letter-spacing:0.08em; text-transform:uppercase; border-radius:999px;">★ Forno</span></div>
+            <div style="flex:1; min-width:0; display:flex; flex-direction:column; gap:4px;">
+              <div style="display:flex; align-items:baseline; justify-content:space-between; gap:12px;">
+                <h3 style="font-family:'Oswald',sans-serif; font-weight:600; text-transform:uppercase; font-size:22px; line-height:0.95; margin:0; color:#075C40;">Bergamotto</h3>
+                <div style="font-family:'Oswald',sans-serif; font-weight:700; font-size:18px; color:#075C40; white-space:nowrap;">€13,50</div>
+              </div>
+              <p style="font-family:'Montserrat',system-ui,sans-serif; font-size:13px; line-height:1.35; margin:0 0 8px; color:#363636;">Bianca con stracciatella, scorza di bergamotto di Reggio, pistacchio, pepe rosa.</p>
+              <a href="#" style="align-self:flex-start; display:inline-flex; align-items:center; gap:8px; padding:10px 18px; background:transparent; color:#075C40; box-shadow:inset 0 0 0 2px #075C40; font-family:'Oswald',sans-serif; font-weight:600; font-size:14px; letter-spacing:0.04em; text-transform:uppercase;"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14 M5 12h14"></path></svg>Aggiungi</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- CARRELLO -->
+    <aside style="position:sticky; top:80px; background:#FFFFFF; border:2px solid #075C40; padding:24px; display:flex; flex-direction:column; gap:20px;">
+      <div style="display:flex; align-items:center; justify-content:space-between; gap:12px;">
+        <h3 style="font-family:'Oswald',sans-serif; font-weight:600; text-transform:uppercase; font-size:36px; line-height:0.95; letter-spacing:0.02em; margin:0; color:#075C40;">Il tuo ordine</h3>
+        <span style="display:inline-flex; align-items:center; gap:4px; font-family:'Oswald',sans-serif; font-weight:600; font-size:11px; letter-spacing:0.08em; text-transform:uppercase; color:#075C40;"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5.5 17.5a3.5 3.5 0 110-7 3.5 3.5 0 010 7z M18.5 17.5a3.5 3.5 0 110-7 3.5 3.5 0 010 7z M5.5 14L9 7h4l2.5 7 M13 7h4l-1 4"></path></svg>Delivery</span>
+      </div>
+      <div style="display:flex; flex-direction:column; gap:12px;">
+        <div style="display:flex; gap:12px; align-items:flex-start; padding-bottom:12px; border-bottom:1px solid #DDDDDD;">
+          <div style="width:28px; height:28px; flex-shrink:0; display:grid; place-items:center; background:#075C40; color:#FFDD00; font-family:'Oswald',sans-serif; font-weight:700; font-size:12px;">1×</div>
+          <div style="flex:1; min-width:0; display:flex; flex-direction:column; gap:2px;">
+            <div style="font-family:'Oswald',sans-serif; font-weight:600; text-transform:uppercase; font-size:14px; color:#075C40;">Tropea</div>
+            <div style="font-family:'Montserrat',system-ui,sans-serif; font-size:11px; color:#999999;">€13,00 · €13,00</div>
+          </div>
+          <a href="#" style="color:#999999; display:inline-grid; place-items:center; width:24px; height:24px;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M18 6L6 18 M6 6l12 12"></path></svg></a>
+        </div>
+        <div style="display:flex; gap:12px; align-items:flex-start; padding-bottom:12px;">
+          <div style="width:28px; height:28px; flex-shrink:0; display:grid; place-items:center; background:#075C40; color:#FFDD00; font-family:'Oswald',sans-serif; font-weight:700; font-size:12px;">1×</div>
+          <div style="flex:1; min-width:0; display:flex; flex-direction:column; gap:2px;">
+            <div style="font-family:'Oswald',sans-serif; font-weight:600; text-transform:uppercase; font-size:14px; color:#075C40;">'Nduja di Spilinga</div>
+            <div style="font-family:'Montserrat',system-ui,sans-serif; font-size:11px; color:#999999;">€12,50 · €12,50</div>
+          </div>
+          <a href="#" style="color:#999999; display:inline-grid; place-items:center; width:24px; height:24px;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M18 6L6 18 M6 6l12 12"></path></svg></a>
+        </div>
+      </div>
+      <div style="border-top:2px solid #075C40; padding-top:16px; display:flex; flex-direction:column; gap:6px; font-family:'Montserrat',system-ui,sans-serif; font-size:14px; color:#363636;">
+        <div style="display:flex; justify-content:space-between;"><span style="color:#999999;">Subtotale</span><span>€25,50</span></div>
+        <div style="display:flex; justify-content:space-between;"><span style="color:#999999;">Consegna</span><span>€3,50</span></div>
+        <div style="display:flex; justify-content:space-between; padding-top:8px; font-family:'Oswald',sans-serif; font-weight:700; font-size:24px; color:#075C40;"><span>Totale</span><span>€29,00</span></div>
+      </div>
+      <a href="#" style="display:inline-flex; align-items:center; justify-content:center; gap:10px; padding:16px 24px; background:#075C40; color:#FFDD00; font-family:'Oswald',sans-serif; font-weight:600; font-size:16px; letter-spacing:0.04em; text-transform:uppercase;">Procedi al checkout</a>
+    </aside>
+  </section>
+
+  <!-- FOOTER (verde) -->
+  <footer style="background:#075C40; color:#FFFFFF; padding:64px 36px 28px; display:flex; flex-direction:column; gap:40px;">
+    <div style="display:flex; justify-content:space-between; align-items:flex-end; gap:40px; flex-wrap:wrap;">
+      <div style="display:flex; flex-direction:column; gap:12px;">
+        <div style="font-family:'Bebas Neue',Impact,sans-serif; font-size:44px; letter-spacing:0.06em; line-height:1; color:#FFDD00;">LIEVITA</div>
+        <div style="font-family:'Montserrat',system-ui,sans-serif; font-size:12px; line-height:1.7; color:rgba(255,255,255,0.55);">Largo Galluppi, 5 · 89861 Tropea (VV) · 0963 666842 · ciao@lievita.it · P.IVA 03088161202</div>
+      </div>
+      <nav style="display:flex; gap:24px; font-family:'Oswald',sans-serif; font-weight:600; font-size:13px; letter-spacing:0.08em; text-transform:uppercase;">
+        <a href="#" style="color:rgba(255,255,255,0.85);">Menù &amp; Ordina</a>
+        <a href="#" style="color:rgba(255,255,255,0.85);">Prenota</a>
+        <a href="#" style="color:rgba(255,255,255,0.85);">La storia</a>
+        <a href="#" style="color:rgba(255,255,255,0.85);">Contatti</a>
+        <a href="#" style="color:rgba(255,255,255,0.85);">Privacy</a>
+      </nav>
+    </div>
+    <div style="border-top:1px solid rgba(255,255,255,0.15); padding-top:24px; display:flex; justify-content:space-between; gap:16px; font-family:'Oswald',sans-serif; font-weight:500; font-size:12px; letter-spacing:0.06em; text-transform:uppercase; color:rgba(255,255,255,0.55);">
+      <div>© 2026 Lievita srl · Tropea</div>
+      <div style="color:rgba(255,221,0,0.85);">"Buona pizza, brava gente."</div>
+    </div>
+  </footer>
+
+</div>
+</x-dc>
+</body>
+</html>

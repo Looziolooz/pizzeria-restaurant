@@ -33,6 +33,17 @@ export const SHOP: Shop = {
   delivery_min: 18,
   pickup_min: 12,
   prep_minutes: 25,
+  // Unica fonte per il dato mostrato in home. Il sito pre-redesign diceva "24 ore"
+  // nella sezione "perché" e "48H" nel blocco storia: adottato 48, da confermare.
+  leavening_hours: 48,
+};
+
+// ⚠️ DA CONFERMARE: il pranzo è annunciato "Lun → Ven" ma SHOP.hours non prevede
+// servizio a pranzo dal lunedì al giovedì. Testo tenuto com'era sul sito.
+export const LUNCH_DEAL = {
+  days: "Lunedì → Venerdì",
+  price: 12,
+  includes: "Pizza + bibita + caffè",
 };
 
 // ─── Menu ──────────────────────────────────────────────────────────
@@ -160,16 +171,33 @@ export function getMockReservations(): Reservation[] {
 
 // ─── Photos used by hero / story / weekly sections ──────────────────
 export const PIZZA_PHOTOS = {
-  hero: [
-    "https://images.unsplash.com/photo-1513104890138-7c749659a591?w=2000&q=85&auto=format&fit=crop",
-    "https://images.unsplash.com/photo-1593504049359-74330189a345?w=2000&q=85&auto=format&fit=crop",
-    "https://images.unsplash.com/photo-1571997478779-2adcbbe9ab2f?w=2000&q=85&auto=format&fit=crop",
-    "https://images.unsplash.com/photo-1604382354936-07c5d9983bd3?w=2000&q=85&auto=format&fit=crop",
+  hero: "/img/margherita.jpg",
+  strip: [
+    "/img/hero.jpg",
+    "/img/margherita.jpg",
+    "/img/forno.jpg",
+    "/img/tropea.jpg",
+    "/img/weekly.jpg",
+    "/img/lievito.jpg",
+    "/img/nduja.jpg",
+    "/img/diavola.jpg",
+    "/img/bergamotto.jpg",
+    "/img/mortadella.jpg",
   ],
-  weekly: "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=1200&q=85&auto=format&fit=crop",
-  story: "https://images.unsplash.com/photo-1579027989536-b7b1f875659b?w=1200&q=85&auto=format&fit=crop",
-  oven: "https://images.unsplash.com/photo-1592861956120-e524fc739696?w=1200&q=85&auto=format&fit=crop",
+  weekly: "/img/weekly.jpg",
+  story: "/img/lievito.jpg",
+  oven: "/img/forno.jpg",
 };
+
+// Tessere della home: pizza + foto locale + colore del blocco.
+export const HOME_TILES: { id: string; num: string; photo: string; palette: "yellow" | "green" | "blue" }[] = [
+  { id: "p-margherita", num: "I", photo: "/img/margherita.jpg", palette: "yellow" },
+  { id: "p-nduja", num: "II", photo: "/img/nduja.jpg", palette: "green" },
+  { id: "p-tropea", num: "III", photo: "/img/tropea.jpg", palette: "blue" },
+  { id: "p-bergamotto", num: "IV", photo: "/img/bergamotto.jpg", palette: "yellow" },
+  { id: "p-diavola", num: "V", photo: "/img/diavola.jpg", palette: "green" },
+  { id: "p-mortadella", num: "VI", photo: "/img/mortadella.jpg", palette: "blue" },
+];
 
 // ─── Helpers ────────────────────────────────────────────────────────
 export const findMenuItem = (id: string): MenuItem | undefined =>

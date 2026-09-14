@@ -40,10 +40,24 @@ export function Footer() {
   return (
     <footer style={{ background: "var(--bk-green)", color: "#fff" }} className="pt-16 md:pt-20 pb-7">
       <div className="max-w-page mx-auto px-5 md:px-12">
+        {/* Giant wordmark row (mockup: Main.dc.html) */}
+        <div className="flex flex-wrap items-end justify-between gap-6 pb-10 md:pb-12 mb-10 md:mb-12 border-b border-white/15">
+          <div
+            className="font-display-xl uppercase text-bk-yellow leading-[0.85] tracking-[0.02em]"
+            style={{ fontSize: "clamp(96px, 15vw, 220px)" }}
+          >
+            LIEVITA
+          </div>
+          <div className="font-display uppercase text-bk-yellow leading-[1.15] tracking-[0.06em] text-[20px] md:text-[28px] md:text-right">
+            Buona pizza,
+            <br />
+            brava gente.
+          </div>
+        </div>
+
         <div className="grid md:grid-cols-[1.4fr_1fr_1fr_1fr] gap-10 pb-12 border-b border-white/15">
           <div>
-            <div className="lv-wordmark lv-wordmark--light text-[44px]">LIEVITA</div>
-            <p className="text-bk-yellow/85 text-[16px] mt-3 max-w-[340px] mb-5">
+            <p className="text-bk-yellow/85 text-[16px] max-w-[340px] mb-5">
               Pizza calabrese a lievito madre. A due passi dal mare di Tropea.
             </p>
             <div className="text-[12px] text-white/55 leading-relaxed">
@@ -88,7 +102,7 @@ export function Footer() {
         </div>
         <div className="pt-7 flex justify-between flex-wrap gap-3 font-display uppercase text-[12px] tracking-[0.06em] text-white/55">
           <div>© 2026 LIEVITA SRL · TROPEA</div>
-          <div className="text-bk-yellow/85">&quot;BUONA PIZZA, BRAVA GENTE.&quot;</div>
+          <div className="text-bk-yellow/85">Pizzeria a lievito madre · Largo Galluppi 5</div>
         </div>
       </div>
     </footer>
