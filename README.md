@@ -1,5 +1,12 @@
 # Lievita — Pizzeria a Tropea 🍕
 
+<!-- looz-design-credit -->
+> Progettato e sviluppato da **[LOoz.design](https://looz.design/?utm_source=github&utm_medium=referral&utm_campaign=readme)**: siti web, gestionali e agenti AI per piccole attività.
+> *Designed and built by LOoz.design: websites, management tools and AI agents for small businesses.*
+>
+> **Demo online:** https://pizzeria-restaurant.vercel.app/ · **Scheda del progetto · Case study:** https://looz.design/work/pizzeria-restaurant
+<!-- /looz-design-credit -->
+
 **🇮🇹 Italiano · [🇸🇪 Svenska](./README.sv.md) · [🇬🇧 English](./README.en.md)**
 
 Demo **Next.js 14 (App Router) + TypeScript + Tailwind CSS** che ricrea il sito
